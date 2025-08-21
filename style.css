@@ -266,23 +266,90 @@ nav .menu a:hover {
     opacity: 0.8;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+/* ✅ Base Responsive Setup */
+* {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ✅ Navbar Responsive */
+@media (max-width: 992px) {
     nav .menu {
         display: flex;
         flex-direction: column;
+        align-items: center;
+        background: #222;
+        padding: 10px;
+    }
+
+    nav .menu a {
+        margin: 10px 0;
+    }
+}
+
+/* ✅ Cover Section */
+@media (max-width: 768px) {
+    .cover-text h1 {
+        font-size: 2rem;
+    }
+
+    .cover-text p {
+        font-size: 1rem;
+        padding: 0 15px;
+    }
+}
+
+/* ✅ Header Section */
+@media (max-width: 768px) {
+    .header-text {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .header-information {
+        font-size: 0.9rem;
+        padding: 0 20px;
+    }
+}
+
+/* ✅ Containers & Grids */
+@media (max-width: 992px) {
+    .container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+
+    .text-section h1 {
+        font-size: 28px;
         text-align: center;
     }
 
+    .text-section a {
+        font-size: 16px;
+        text-align: center;
+    }
+}
+
+/* ✅ Footer */
+@media (max-width: 768px) {
     .cover8 {
         flex-direction: column;
         align-items: center;
-        gap: 20px;
+        text-align: center;
     }
 
     .cover8-content {
         flex-direction: column;
-        align-items: center;
-        gap: 10px;
+        gap: 15px;
     }
 }
