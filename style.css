@@ -47,7 +47,8 @@ nav .menu a:hover {
     width: 100%;
     /* min-height: 90vh;
     /* adjust height */
-    height: 90vh; */
+    height: 90vh;
+
     overflow: hidden;
 }
 
@@ -91,9 +92,12 @@ nav .menu a:hover {
 .header-text {
     position: relative;
     margin-top: 100px;
-    justify-content: center; /* center horizontally */
-    align-items: center;     /* center vertically (optional) */
-    text-align: center;      /* applies to text inside each h3 */
+    justify-content: center;
+    /* center horizontally */
+    align-items: center;
+    /* center vertically (optional) */
+    text-align: center;
+    /* applies to text inside each h3 */
     color: white;
     display: flex;
     gap: 0.5%;
@@ -105,12 +109,12 @@ nav .menu a:hover {
 }
 
 .header-information {
-    max-width: 600px;    
-    margin: 0 auto;      
+    max-width: 600px;
+    margin: 0 auto;
     text-align: justify;
     text-align-last: center;
-    color: white;       
-    line-height: 1.5;    
+    color: white;
+    line-height: 1.5;
     font-size: 0.8rem;
 }
 
@@ -118,11 +122,11 @@ nav .menu a:hover {
     background-color: #191818;
 }
 
-.sec3{
+.sec3 {
     background-color: #222;
 }
 
-.sec4{
+.sec4 {
     background-color: #191818;
 }
 
@@ -152,7 +156,7 @@ nav .menu a:hover {
     font-size: 14px;
 }
 
-.sec2 h2{
+.sec2 h2 {
     text-align: center;
     color: #fff;
 }
