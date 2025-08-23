@@ -107,3 +107,13 @@ function auReadMore()
 document.querySelector(".hamburger").addEventListener("click", () => {
   document.querySelector("nav .menu").classList.toggle("active");
 });
+
+
+    window.addEventListener("scroll", function () {
+        const nav = document.querySelector("nav");
+        if (window.scrollY > 50) { // kapag lumampas ng 50px scroll
+            nav.classList.add("scrolled");
+        } else {
+            nav.classList.remove("scrolled");
+        }
+    });
