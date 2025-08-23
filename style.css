@@ -10,6 +10,7 @@ body {
 }
 
 /* Navbar */
+/* ===== NAVBAR ===== */
 nav {
     background: #222;
     padding: 0.8rem 2rem;
@@ -28,10 +29,15 @@ nav .logo img {
     height: 50px;
 }
 
+nav .menu {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
 nav .menu a {
     color: #fff;
     text-decoration: none;
-    margin: 0 15px;
     font-weight: bold;
     transition: color 0.3s ease;
 }
@@ -39,6 +45,45 @@ nav .menu a {
 nav .menu a:hover {
     color: #f39c12;
 }
+
+/* ===== Hamburger (for mobile) ===== */
+.hamburger {
+    display: none;
+    font-size: 28px;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    nav .menu {
+        display: none;
+        flex-direction: column;
+        background: #222;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        padding: 20px;
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: all 0.3s ease;
+    }
+
+    /* kapag hover si hamburger → lalabas ang menu */
+    .hamburger:hover + .menu,
+    .menu:hover {
+        display: flex;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
+
 
 /* Cover Section */
 
@@ -294,6 +339,90 @@ nav .menu a:hover {
     left: 20px;
     font-size: 18px;
     color: #fff;
+}
+
+/* About */
+.About{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.card{
+    background-color: white;
+    margin: auto;
+}
+
+.card_img{
+    object-fit: cover;
+    width: 100%;
+}
+
+.card-contents{
+    margin-left: 8%;
+    margin-right: 8%;
+    margin-top: 2%;
+    font-size: 2.1vw;
+    font-weight: 700;
+    text-align: center;
+}
+
+.visionTitle, .missionTitle{
+    color: #f39c12;
+    margin-top: 5%;
+    margin-right: 40%;
+    margin-left: 30vw;
+    font-weight: 900;
+}
+
+.visionDesc, .missionDesc{
+    margin-left: 8%;
+    margin-right: 8%;
+    margin-top: 2%;
+    font-size: 2.1vw;
+    font-weight: 700;
+    text-align: center;
+}
+
+.hidden{
+    display: none;
+}
+
+.read-more-btn{
+    display:inline-flex;
+    position: absolute;
+    border: none;
+    background: transparent;
+    margin-top: -5.5%;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.read-more-btn img{
+    width: 6%;
+}
+
+.read-more-btn img:hover{
+    width: 8%;
+}
+
+.card .auBg{
+    display:flex;
+    border: none;
+    object-fit: cover;
+    width: 150%;
+    height: 55%;
+    background-image: linear-gradient(#f1c693, #ed9725);
+    position: absolute;
+    margin-top: 28%;
+    margin-left: -50%;
+    opacity: 90%;
+}
+
+.ABg{
+    object-fit: cover;
+    width: 100%;
 }
 
 /* Footer Top Section */
