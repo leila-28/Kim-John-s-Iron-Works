@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="icon" type="image/png" href="logo_title.png">
 </head>
 
 
@@ -33,14 +33,45 @@
 
     <!-- Home Page -->
     <section class="cover">
-        <img src="cover.jpg" alt="Cover" class="cover-img">
-        <div class="cover-text">
-            <h1>Kim John’s Iron Works</h1>
-            <p>We can help you. We offer Quality service at affordable price</p>
-            <div class="buttons">
-                <a href="#" class="btn btn-dark">Contact me</a>
-                <a href="#" class="btn btn-warning">View my projects</a>
+        <div class="slider">
+            <div class="slide active">
+                <img src="cover.jpg" alt="Cover 1" class="cover-img">
+                <div class="cover-text">
+                    <h1>Kim John’s Iron Works</h1>
+                    <p>We can help you. We offer Quality service at affordable price</p>
+                    <div class="buttons">
+                        <a href="#" class="btn btn-dark">Contact me</a>
+                        <a href="#" class="btn btn-warning">View my projects</a>
+                    </div>
+                </div>
             </div>
+
+            <div class="slide">
+                <img src="highlight.jpg" alt="Cover 2" class="cover-img">
+                <div class="cover-text">
+                    <h1>Custom Iron Works</h1>
+                    <p>Strong, durable, and stylish designs</p>
+                </div>
+            </div>
+
+            <div class="slide">
+                <img src="highlight2.jpg" alt="Cover 3" class="cover-img">
+                <div class="cover-text">
+                    <h1>Affordable Services</h1>
+                    <p>We deliver quality at the right price</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Arrow buttons -->
+        <a class="prev">&lt;</a>
+        <a class="next">&gt;</a>
+
+        <!-- Banner bottom dots -->
+        <div class="banner-buttons">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
         </div>
     </section>
 
@@ -52,7 +83,7 @@
         <div class="header-information">We are a dedicated metal fabrication workshop, specializing in custom iron gates, railings, grills, and structural metalwork. With skilled craftsmanship and durable materials, we create high-quality designs that combine strength, functionality, and style for both residential and commercial projects.</div>
     </section>
 
-    <section class=sec2>
+    <section class=sec2 id="sec2">
         <h2>Projects</h2>
         <div class="container">
             <!-- <div class="text-section">
@@ -61,7 +92,7 @@
             </div> -->
 
             <div class="card">
-                <img src="sige.jpg" alt="Rails">
+                <img src="card2.jpg" alt="Rails">
                 <div class="card-text">Rails</div>
             </div>
 
@@ -153,6 +184,9 @@
             <p class="footer-text">© 2025 KIM JOHN'S IRON WORKS. All rights reserved.</p>
         </div>
     </footer>
+
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="script.js"></script>
 </body>
 
 </html>

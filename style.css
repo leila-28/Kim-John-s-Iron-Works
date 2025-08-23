@@ -45,42 +45,137 @@ nav .menu a:hover {
 .cover {
     position: relative;
     width: 100%;
-    /* min-height: 90vh;
-    /* adjust height */
-    height: 90vh;
+    height: 90vh;     /* fixed height ng cover section */
+    overflow: hidden; /* hide yung labas na slides */
+}
 
-    overflow: hidden;
+.slider {
+    display: flex;
+    height: 100%;
+    transition: transform 0.6s ease-in-out;
+}
+
+.slide {
+    flex: 0 0 100%;   /* bawat slide = 100% width ng cover */
+    height: 100%;
+    position: relative;
 }
 
 .cover-img {
     width: 100%;
     height: 100%;
-    margin-top: 50px;
-    object-fit: cover;
-    /* makes sure image covers entire section */
+    object-fit: cover; /* para laging sakto sa container */
 }
 
 .cover-text {
     position: absolute;
     top: 50%;
-    /* vertically center */
     left: 50%;
-    /* horizontally center */
     transform: translate(-50%, -50%);
     color: white;
     text-align: center;
-    max-width: 700px;
+    text-shadow: 1px 1px 5px black;
 }
 
-.cover-text h1 {
-    font-size: 3rem;
-    font-weight: bold;
+
+.buttons a {
+    margin: 5px;
 }
 
-.cover-text p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
+/* Arrow buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px; 
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    color: white;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 50%;
+    transition: background 0.3s, transform 0.2s;
+    user-select: none;
+    text-decoration: none;
+    line-height: 1;
 }
+
+.prev:hover, .next:hover {
+    background: rgba(0, 0, 0, 0.7);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.prev { left: 20px; }
+.next { right: 20px; }
+
+/* 📱 Responsive adjustments */
+@media (max-width: 768px) {
+    .prev, .next {
+        width: 40px;   /* mas maliit na bilog */
+        height: 40px;
+        font-size: 20px;
+    }
+
+    .banner-buttons .dot {
+        height: 8px;
+        width: 8px;
+        margin: 0 3px;
+    }
+
+    .banner-buttons .dot.active {
+        width: 20px; /* pill shape pero proportion sa maliit na screen */
+    }
+}
+
+@media (max-width: 480px) {
+    .prev, .next {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+    }
+
+    .banner-buttons .dot {
+        height: 6px;
+        width: 6px;
+        margin: 0 2px;
+    }
+
+    .banner-buttons .dot.active {
+        width: 15px;
+    }
+}
+
+/* Dots */
+.banner-buttons {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner-buttons .dot {
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    display: inline-block;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.banner-buttons .dot.active {
+    width: 30px;      /* pill shape */
+    border-radius: 20px;
+    background: white;
+}
+
 
 .welcome-header {
     border: none;
