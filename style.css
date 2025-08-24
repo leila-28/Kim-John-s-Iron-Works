@@ -140,6 +140,14 @@ nav .menu a:hover {
 
 .cover-text {
     position: absolute;
+    top: 40%;
+    left: 10%;
+    color: white;
+    text-align: center;
+}
+
+.cover-text2{
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -148,7 +156,66 @@ nav .menu a:hover {
 }
 
 .buttons a {
+    display: inline-block;
+    padding: 6px 12px;
     margin: 5px;
+    border-radius: 50px; /* rounded pill shape */
+    font-size: 0.8rem;
+    font-weight: 300;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    white-space: nowrap; /* para hindi mag-break yung text */
+}
+
+/* Dark button */
+.buttons .btn-dark {
+    background: #222;
+    color: #fff;
+    border: 2px solid #222;
+}
+
+.buttons .btn-dark:hover {
+    background: transparent;
+    color: #222;
+    border-color: #222;
+    transform: translateY(-3px);
+}
+
+/* Warning button */
+.buttons .btn-warning {
+    background: #e5ae63;
+    color: #222;
+    border: 2px solid #e5ae63;
+}
+
+.buttons .btn-warning:hover {
+    background: transparent;
+    color: #e5ae63;
+    transform: translateY(-3px);
+}
+
+/* 📱 Responsive adjustments */
+@media (max-width: 768px) {
+    .buttons a {
+        padding: 5px 10px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .buttons {
+        display: flex;
+        flex-direction: column; /* stack buttons vertically */
+        align-items: center;
+    }
+
+    .buttons a {
+        width: 80%;       /* occupy more width */
+        padding: 6px;
+        font-size: 0.65rem;
+        text-align: center;
+    }
 }
 
 /* Arrow buttons */
@@ -250,7 +317,7 @@ nav .menu a:hover {
     border: none;
     background-color: #222;
     overflow: hidden;
-    min-height: 250px
+    padding-bottom: 20px;
 }
 
 .header-text {
@@ -296,7 +363,7 @@ nav .menu a:hover {
 
 /* SECTION 2 */
 .sec2 {
-    background-color: #222;
+    background-color: #191818;
 }
 
 .container {
@@ -482,6 +549,43 @@ nav .menu a:hover {
 
 .image-container:hover img.before {
   opacity: 1; /* 🔹 show "before" when hovered */
+}
+
+/* See More Button */
+/* Hide extra projects */
+.project-card.hidden {
+  display: none;
+}
+
+/* See More button styling */
+.hidden-projects {
+  display: none; /* hidden by default */
+  margin-top: 20px;
+}
+
+.see-more-container {
+  text-align: center;
+  margin-top: 30px; /* button spacing from projects */
+}
+
+#seeMoreBtn {
+  background: #e5ae63;
+  color: #1c1c1c;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#seeMoreBtn:hover {
+  background: #ffcc70;
+}
+
+/* Hidden projects by default */
+.project-card.hidden {
+  display: none;
 }
 
 /* SERVICES */
@@ -721,4 +825,56 @@ nav .menu a:hover {
         align-items: center;
         gap: 10px;
     }
+}
+
+
+/* IMAGE SCROLL SECTION */
+.image-scroll {
+  width: 100%;
+  overflow: hidden;
+  background: #222; /* optional bg */
+  padding: 20px 0;
+}
+
+.scroll-wrapper {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.scroll-content {
+  display: flex;
+  animation: scroll-left 25s linear infinite;
+}
+
+.scroll-content img {
+  height: 150px;        /* adjust image height */
+  margin: 0 20px;       /* spacing between images */
+  border-radius: 12px;  /* optional rounded edges */
+  object-fit: cover;
+}
+
+/* Animation keyframes */
+@keyframes scroll-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%); /* kalahati kasi may duplicate */
+  }
+}
+
+/* 📱 Responsive adjustments */
+@media (max-width: 768px) {
+  .scroll-content img {
+    height: 120px;
+    margin: 0 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .scroll-content img {
+    height: 90px;
+    margin: 0 10px;
+  }
 }

@@ -117,3 +117,23 @@ document.querySelector(".hamburger").addEventListener("click", () => {
             nav.classList.remove("scrolled");
         }
     });
+
+
+
+  const seeMoreBtn = document.getElementById("seeMoreBtn");
+  const hiddenCards = document.querySelectorAll(".project-card.hidden");
+
+  let expanded = false;
+
+  seeMoreBtn.addEventListener("click", () => {
+    hiddenCards.forEach(card => {
+      card.style.display = expanded ? "none" : "block";
+    });
+
+    seeMoreBtn.textContent = expanded ? "See More" : "See Less";
+    expanded = !expanded;
+  });
+
+
+
+
