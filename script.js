@@ -31,6 +31,45 @@
     });
   });
 
+  document.addEventListener("DOMContentLoaded", () => {
+  const nav = document.querySelector("nav");
+  const hamburger = document.querySelector(".hamburger");
+  const menu = document.querySelector(".menu");
+
+  let lastScrollY = window.scrollY;
+
+  // 🔹 Toggle menu (open/close)
+  hamburger.addEventListener("click", () => {
+    menu.classList.toggle("active");
+    hamburger.classList.toggle("open");
+  });
+
+  // 🔹 Close menu kapag nag-click ng link
+  document.querySelectorAll(".menu a").forEach(link => {
+    link.addEventListener("click", () => {
+      menu.classList.remove("active");
+      hamburger.classList.remove("open");
+    });
+  });
+
+  // 🔹 Scroll effect (mobile only)
+  window.addEventListener("scroll", () => {
+    if (window.innerWidth <= 768) {
+      if (window.scrollY > lastScrollY) {
+        // scroll down → hide
+        nav.style.transform = "scaleY(0)";
+      } else {
+        // scroll up → show
+        nav.style.transform = "scaleY(1)";
+      }
+    } else {
+      // reset kapag desktop
+      nav.style.transform = "scaleY(1)";
+    }
+    lastScrollY = window.scrollY;
+  });
+});
+
 
 
 /*HOME*/

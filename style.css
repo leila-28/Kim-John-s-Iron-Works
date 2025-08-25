@@ -19,6 +19,9 @@ nav {
   height: auto;
   transition: transform 0.3s ease, height 0.3s ease;
   transform-origin: top;
+  transform: scaleY(1);
+  transition: transform 0.3s ease, height 0.3s ease;
+  transform-origin: top;
 }
 
 nav.scrolled {
@@ -51,6 +54,7 @@ nav .menu {
   align-items: center;
   flex: 1;
   gap: 60px;
+  z-index: 1090;
 }
 
 nav .menu a {
@@ -72,7 +76,13 @@ nav .menu a:hover {
   color: #fff;
   cursor: pointer;
   position: relative;
+  z-index: 1100;
 }
+
+.hamburger.open {
+  color: #e5ae63; /* kulay iba kapag open */
+}
+
 
 /* ✅ Responsive */
 @media (max-width: 768px) {
@@ -92,10 +102,11 @@ nav .menu a:hover {
     top: 60px;
     right: 0;
     width: 220px;
-    padding: 20px;
+    padding: 20px 10px;
     opacity: 0;
     transform: translateY(-20px);
     transition: all 0.3s ease;
+    gap: 0;
   }
 
   nav .menu.active {
@@ -110,8 +121,13 @@ nav .menu a:hover {
 
   nav .menu a {
     font-size: 1rem;
-    padding: 8px 0;
+    padding: 12px 0;
     text-align: left;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+   nav .menu a:last-child {
+    border-bottom: none; /* para malinis sa huli */
   }
 }
 
