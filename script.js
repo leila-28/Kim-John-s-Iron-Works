@@ -1,3 +1,38 @@
+// NAVBAR
+
+  let lastScrollTop = 0;
+  const navbar = document.querySelector("nav");
+
+  window.addEventListener("scroll", function() {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > lastScrollTop) {
+      // 📉 Scrolling Down → Shrink Navbar
+      navbar.classList.add("shrink");
+    } else {
+      // 📈 Scrolling Up → Expand Navbar
+      navbar.classList.remove("shrink");
+    }
+
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+  });
+
+  const hamburger = document.querySelector(".hamburger");
+  const menu = document.querySelector(".menu");
+
+  hamburger.addEventListener("click", () => {
+    menu.classList.toggle("active");
+  });
+
+  // Optional: auto close menu when link clicked (mobile)
+  document.querySelectorAll(".menu a").forEach(link => {
+    link.addEventListener("click", () => {
+      menu.classList.remove("active");
+    });
+  });
+
+
+
 /*HOME*/
 
 const slider = document.querySelector(".slider");

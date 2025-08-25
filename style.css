@@ -11,103 +11,108 @@ body {
 
 /* NAVBAR */
 nav {
-    padding: 0.8rem 2rem;
-    position: fixed;
-    z-index: 999;
-    width: 100%;
-    background-color: transparent;
-    height: auto;
-    transition: 0.3s ease, box-shadow 0.3s ease;
+  padding: 0.8rem 2rem;
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  background-color: transparent;
+  height: auto;
+  transition: transform 0.3s ease, height 0.3s ease;
+  transform-origin: top;
 }
 
 nav.scrolled {
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    background: #222;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  background: #222;
+  padding: 0.4rem 2rem; /* lumiit height kapag scroll */
 }
 
 nav .nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 nav .logo img {
-    height: 50px;
-    max-width: 100%;
+  height: 75px;
+  max-width: 100%;
+  margin-left: 50px;
+  transition: height 0.3s ease, margin 0.3s ease;
+}
+
+nav.scrolled .logo img {
+  height: 60px; /* lumiit konti yung logo */
 }
 
 /* Menu (desktop default) */
 nav .menu {
-    display: flex;
-    justify-content: center; /* center horizontally */
-    align-items: center;
-    flex: 1; /* para mag occupy ng gitna */
-    gap: 50px;
+  display: flex;
+  justify-content: center; /* center horizontally */
+  align-items: center;
+  flex: 1;
+  gap: 60px;
 }
 
 nav .menu a {
-    color: #fff;
-    text-decoration: none;
-    transition: color 0.3s ease;
-    font-size: 1rem;
-    font-weight: 500;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 nav .menu a:hover {
-    color: #e5ae63;
+  color: #e5ae63;
 }
 
-/* Hamburger */
+/* Hamburger hidden by default */
 .hamburger {
-    display: none;
-    font-size: 28px;
-    color: #fff;
-    cursor: pointer;
-    position: relative;
+  display: none;
+  font-size: 28px;
+  color: #fff;
+  cursor: pointer;
+  position: relative;
 }
 
 /* ✅ Responsive */
-@media (max-width: 992px) {
-    nav .menu {
-        gap: 1px;
-    }
-    nav .menu a {
-        font-size: 0.95rem;
-    }
-}
-
 @media (max-width: 768px) {
-    nav .menu {
-        display: none;
-        flex-direction: column;
-        background: #222;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        width: 220px;
-        padding: 20px;
-        opacity: 0;
-        transform: translateY(-20px);
-        transition: all 0.3s ease;
-    }
+  nav .logo img {
+    height: 60px;
+    margin-left: 10px; /* nasa gilid */
+  }
+  nav.scrolled .logo img {
+    height: 50px;
+  }
 
-    /* Hamburger toggles dropdown */
-    .hamburger:hover + .menu,
-    .menu:hover {
-        display: flex;
-        opacity: 1;
-        transform: translateY(0);
-    }
+  nav .menu {
+    display: none;
+    flex-direction: column;
+    background: #222;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 220px;
+    padding: 20px;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.3s ease;
+  }
 
-    .hamburger {
-        display: block;
-    }
+  nav .menu.active {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+  }
 
-    nav .menu a {
-        font-size: 1rem;
-        padding: 8px 0;
-        text-align: left;
-    }
+  .hamburger {
+    display: block;
+  }
+
+  nav .menu a {
+    font-size: 1rem;
+    padding: 8px 0;
+    text-align: left;
+  }
 }
 
 /* COVER SECTION */
