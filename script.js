@@ -119,21 +119,54 @@ document.querySelector(".hamburger").addEventListener("click", () => {
     });
 
 
+// PROJECT
+const seeMoreBtn = document.getElementById("seeMoreBtn");
+const allCards = document.querySelectorAll(".project-card");
+const filterLinks = document.querySelectorAll(".filter-buttons a");
 
-  const seeMoreBtn = document.getElementById("seeMoreBtn");
-  const hiddenCards = document.querySelectorAll(".project-card.hidden");
+let expanded = false;
+let currentFilter = "all"; // default filter
 
-  let expanded = false;
-
-  seeMoreBtn.addEventListener("click", () => {
-    hiddenCards.forEach(card => {
-      card.style.display = expanded ? "none" : "block";
-    });
-
-    seeMoreBtn.textContent = expanded ? "See More" : "See Less";
-    expanded = !expanded;
+function updateProjects() {
+  let visibleCount = 0;
+  allCards.forEach(card => {
+    if (currentFilter === "all" || card.dataset.category === currentFilter) {
+      if (!expanded && visibleCount >= 5) {
+        card.style.display = "none";
+      } else {
+        card.style.display = "block";
+      }
+      visibleCount++;
+    } else {
+      card.style.display = "none";
+    }
   });
 
+  // toggle button text depende sa state
+  if (visibleCount > 5) {
+    seeMoreBtn.style.display = "inline-block";
+    seeMoreBtn.textContent = expanded ? "See Less" : "See More";
+  } else {
+    seeMoreBtn.style.display = "none"; // kung 5 or less projects lang, hide button
+  }
+}
 
+// --- SEE MORE / SEE LESS ---
+seeMoreBtn.addEventListener("click", () => {
+  expanded = !expanded;
+  updateProjects();
+});
 
+// --- FILTERING ---
+filterLinks.forEach(link => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    currentFilter = link.dataset.filter;
+    expanded = false; // reset
+    updateProjects();
+  });
+});
+
+// --- Initial load (ALL with first 5 only)
+updateProjects();
 

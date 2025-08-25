@@ -429,13 +429,13 @@ nav .menu a:hover {
     color: #e5ae63;
 }
 
-.projects-grid {
+.projects-ggrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
 }
 
-.project-card {
+.project-ccard {
   background: #222;
   border-radius: 10px;
   overflow: hidden;
@@ -471,13 +471,71 @@ nav .menu a:hover {
   font-weight: bold;
 }
 
-.project-card p {
+.project-ccard p {
   padding: 12px;
   font-size: 16px;
   font-weight: 500;
 }
 
 /* PROJECTS */
+
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 25px 0;
+  padding: 0;
+}
+
+.filter-buttons a {
+  position: relative;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 8px 14px;
+  transition: color 0.3s ease;
+  white-space: nowrap; /* prevent text breaking */
+}
+
+.filter-buttons a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background-color: #333;
+  transition: width 0.3s ease;
+}
+
+.filter-buttons a:hover {
+  color: #000;
+}
+
+.filter-buttons a:hover::after,
+.filter-buttons a.active::after {
+  width: 100%;
+}
+
+.filter-buttons a.active {
+  color: #000;
+  font-weight: 600;
+}
+
+/* ✅ Responsive for mobile */
+@media (max-width: 600px) {
+  .filter-buttons {
+    gap: 8px;
+  }
+
+  .filter-buttons a {
+    font-size: 0.85rem;  /* smaller text */
+    padding: 6px 10px;   /* tighter padding */
+  }
+}
+
 .projects {
   background: #1c1c1c;
   color: #fff;
@@ -493,9 +551,11 @@ nav .menu a:hover {
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
   gap: 20px;
+  justify-items: center;
 }
+
 
 .project-card {
   background: #2a2a2a;
@@ -504,6 +564,10 @@ nav .menu a:hover {
   text-align: left;
   box-shadow: 0 4px 10px rgba(0,0,0,0.5);
   transition: transform 0.3s ease;
+  padding: 10px;
+  width: 100%;
+  max-width: 300px; /* para consistent sizes */
+  display: none; /* lahat naka-hide muna by default, JS mag-show */
 }
 
 .project-card:hover {
@@ -514,6 +578,7 @@ nav .menu a:hover {
   width: 100%;
   height: 200px;
   object-fit: cover;
+  display: block;
 }
 
 .project-card h3 {
@@ -526,6 +591,8 @@ nav .menu a:hover {
   font-size: 0.95rem;
   line-height: 1.4;
   color: #ccc;
+  padding: 12px;
+  font-weight: 500;
 }
 
 /* Before/After Overlay */
@@ -588,6 +655,57 @@ nav .menu a:hover {
   display: none;
 }
 
+/* IMAGE SCROLL SECTION */
+.image-scroll {
+  width: 100%;
+  overflow: hidden;
+  background: #222; /* optional bg */
+  padding: 20px 0;
+}
+
+.scroll-wrapper {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.scroll-content {
+  display: flex;
+  animation: scroll-left 25s linear infinite;
+}
+
+.scroll-content img {
+  height: 150px;        /* adjust image height */
+  margin: 0 20px;       /* spacing between images */
+  border-radius: 12px;  /* optional rounded edges */
+  object-fit: cover;
+}
+
+/* Animation keyframes */
+@keyframes scroll-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%); /* kalahati kasi may duplicate */
+  }
+}
+
+/* 📱 Responsive adjustments */
+@media (max-width: 768px) {
+  .scroll-content img {
+    height: 120px;
+    margin: 0 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .scroll-content img {
+    height: 90px;
+    margin: 0 10px;
+  }
+}
+
 /* SERVICES */
 .services {
   background: #111;
@@ -647,13 +765,28 @@ nav .menu a:hover {
   }
 }
 
-@media (max-width: 600px) {
+/* @media (max-width: 600px) {
   .services-grid {
-    grid-template-columns: 1fr; /* 1 per row on mobile */
+    grid-template-columns: 1fr;
   }
 
   .service img {
     height: 180px;
+  }
+} */
+
+/* ✅ Mobile adjustments for Project Section */
+@media (max-width: 600px) {
+  .project-card {
+    width: 95%;            /* halos buong screen */
+    max-width: 100%;       /* wag limitahan ang lapad */
+    margin: 10px auto;     /* center para pantay */
+  }
+
+  .project-card img {
+    width: 100%;
+    height: auto;          /* responsive image */
+    border-radius: 10px;   /* para pantay sa desktop design */
   }
 }
 
@@ -825,56 +958,4 @@ nav .menu a:hover {
         align-items: center;
         gap: 10px;
     }
-}
-
-
-/* IMAGE SCROLL SECTION */
-.image-scroll {
-  width: 100%;
-  overflow: hidden;
-  background: #222; /* optional bg */
-  padding: 20px 0;
-}
-
-.scroll-wrapper {
-  display: flex;
-  align-items: center;
-  white-space: nowrap;
-}
-
-.scroll-content {
-  display: flex;
-  animation: scroll-left 25s linear infinite;
-}
-
-.scroll-content img {
-  height: 150px;        /* adjust image height */
-  margin: 0 20px;       /* spacing between images */
-  border-radius: 12px;  /* optional rounded edges */
-  object-fit: cover;
-}
-
-/* Animation keyframes */
-@keyframes scroll-left {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%); /* kalahati kasi may duplicate */
-  }
-}
-
-/* 📱 Responsive adjustments */
-@media (max-width: 768px) {
-  .scroll-content img {
-    height: 120px;
-    margin: 0 15px;
-  }
-}
-
-@media (max-width: 480px) {
-  .scroll-content img {
-    height: 90px;
-    margin: 0 10px;
-  }
 }
