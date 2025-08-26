@@ -172,49 +172,6 @@ dots.forEach((dot, i) => {
 
 
 
-/*ABOUT*/
-
-function auReadMore()
-{
-    var btn = document.querySelector('.read-more-btn');
-    var grad = document.querySelector('.card .auBg');
-    var toggleImage = document.querySelector('.read-more-btn img');
-
-    var extraText = document.getElementById('card_read-more');
-    
-            if (extraText.classList.contains('hidden')) {
-                extraText.classList.remove('hidden');
-                grad.style.display = "none";
-                btn.style.display = "inline-flex";
-                btn.style.marginTop = "0%";
-                toggleImage.src = 'aboutUsLessBtn.png';
-                toggleImage.alt = 'Show Less';
-            }  
-            else {
-                extraText.classList.add('hidden');
-                grad.style.display = "flex";
-                btn.style.display = "inline-flex";
-                btn.style.marginTop = "-5.5%";
-                toggleImage.src = 'aboutUsMoreBtn.png';
-                toggleImage.alt = 'Show More';
-            }
-}
-
-document.querySelector(".hamburger").addEventListener("click", () => {
-  document.querySelector("nav .menu").classList.toggle("active");
-});
-
-
-    window.addEventListener("scroll", function () {
-        const nav = document.querySelector("nav");
-        if (window.scrollY > 50) { // kapag lumampas ng 50px scroll
-            nav.classList.add("scrolled");
-        } else {
-            nav.classList.remove("scrolled");
-        }
-    });
-
-
 // PROJECT
 const seeMoreBtn = document.getElementById("seeMoreBtn");
 const allCards = document.querySelectorAll(".project-card");
