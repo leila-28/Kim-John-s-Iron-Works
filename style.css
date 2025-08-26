@@ -989,16 +989,14 @@ nav .menu a:hover {
 }
 
 @media (max-width: 768px) {
-  .scroll-content img {
-    width: 200px;
-    height: 140px;
+  .project-grid {
+    grid-template-columns: repeat(1, 1fr); /* 2 cards for mobile */
   }
 }
 
 @media (max-width: 480px) {
-  .scroll-content img {
-    width: 150px;
-    height: 110px;
+  .project-grid {
+    grid-template-columns: 1fr; /* 1 card per row on small phones */
   }
 }
 
