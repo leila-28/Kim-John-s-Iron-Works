@@ -147,6 +147,7 @@ let currentFilter = "all"; // default filter
 
 function updateProjects() {
   let visibleCount = 0;
+
   allCards.forEach(card => {
     if (currentFilter === "all" || card.dataset.category === currentFilter) {
       if (!expanded && visibleCount >= 5) {
@@ -165,8 +166,14 @@ function updateProjects() {
     seeMoreBtn.style.display = "inline-block";
     seeMoreBtn.textContent = expanded ? "See Less" : "See More";
   } else {
-    seeMoreBtn.style.display = "none"; // kung 5 or less projects lang, hide button
+    seeMoreBtn.style.display = "none"; // hide button if <=5
   }
+
+  // update active class for filter buttons
+  filterLinks.forEach(link => link.classList.remove("active"));
+  filterLinks.forEach(link => {
+    if (link.dataset.filter === currentFilter) link.classList.add("active");
+  });
 }
 
 // --- SEE MORE / SEE LESS ---
@@ -180,11 +187,12 @@ filterLinks.forEach(link => {
   link.addEventListener("click", (e) => {
     e.preventDefault();
     currentFilter = link.dataset.filter;
-    expanded = false; // reset
+    expanded = false; // reset see more
     updateProjects();
   });
 });
 
-// --- Initial load (ALL with first 5 only)
+// --- Initial load ---
 updateProjects();
+
 
