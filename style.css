@@ -213,7 +213,7 @@ nav .menu a:hover {
 .buttons a {
     display: inline-block;
     padding: 6px 24px;
-    margin-top: 70px;
+    margin-top: 20px;
     margin-right: 20px;
     border-radius: 20px; /* rounded pill shape */
     font-size: 0.8rem;
@@ -268,11 +268,14 @@ nav .menu a:hover {
         display: flex;
         flex-direction: column; /* stack buttons vertically */
         align-items: center;
+        gap: 12px;
     }
 
     .buttons a {
         width: 80%;       /* occupy more width */
         padding: 6px;
+        margin-top: 0;
+        margin-right: 0;
         font-size: 0.65rem;
         text-align: center;
     }
