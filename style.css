@@ -1086,7 +1086,7 @@ nav .menu a:hover {
 
 /* Parallax background */
 .parallax {
-  background-image: url('anona.png');
+  background-image: url('structural_foreman.png');
   background-size: cover;
   background-attachment: fixed;
   height: 320px;
@@ -1111,8 +1111,8 @@ nav .menu a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 80px 10%;
-  background: #ffffff; /* ✅ clean white background */
+  padding: 30px 10%;
+  background: #1f1f1f;
 }
 
 /* Main content */
@@ -1122,7 +1122,7 @@ nav .menu a:hover {
   font-weight: 400;
   text-align: center;
   line-height: 1.9;
-  color: #2c2c2c;
+  color: #555;
   font-family: 'Open Sans', sans-serif;
 }
 
@@ -1137,11 +1137,21 @@ nav .menu a:hover {
   font-style: italic;
 }
 
+.card-contents p{
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #555;
+  margin: 25px auto;
+  max-width: 750px;
+  line-height: 1.8;
+  font-style: italic;
+}
+
 /* Accent underline effect */
 .card-contents p strong {
-  color: #e67e22; /* orange accent for emphasis */
+  color: #e5ae63; /* orange accent for emphasis */
   font-weight: 600;
-  border-bottom: 2px solid #e67e22;
+  border-bottom: 1px solid #e5ae63;
   padding-bottom: 2px;
 }
 
@@ -1156,7 +1166,7 @@ nav .menu a:hover {
     align-items: flex-start;
     flex-wrap: wrap;
     gap: 50px;
-    border-top: 3px solid #f39c12;
+    border-top: 1px solid #e5ae63;
 }
 
 .logo_footer {
@@ -1187,24 +1197,27 @@ nav .menu a:hover {
     gap: 50px;
     color: #fff;
     flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .cover8-content div {
+  flex: 1;
     min-width: 200px;
 }
 
 .cover8-content b {
     display: block;
     margin-bottom: 12px;
-    color: #f39c12;
+    color: #e5ae63;
     font-size: 1.15rem;
 }
 
 /* Quick Links 2 Columns */
 .quick-links .links-grid {
     display: grid;
-    grid-template-columns: repeat(2, auto);
-    gap: 8px 25px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px 20px;
+    justify-items: start;
 }
 
 .quick-links a {
@@ -1214,7 +1227,7 @@ nav .menu a:hover {
 }
 
 .quick-links a:hover {
-    color: #f39c12;
+    color: #e5ae63;
 }
 
 /* Contact & Company Info */
@@ -1224,10 +1237,11 @@ nav .menu a:hover {
     margin: 6px 0;
     color: #ccc;
     font-size: 0.95rem;
+    text-decoration: none;
 }
 
 .contact-info a:hover {
-    color: #f39c12;
+    color: #e5ae63;
 }
 
 /* Footer Bottom */
@@ -1236,7 +1250,6 @@ nav .menu a:hover {
     color: #fff;
     padding: 1rem 0;
     text-align: center;
-    border-top: 1px solid #333;
 }
 
 .footer .social-media {
@@ -1257,7 +1270,7 @@ nav .menu a:hover {
 }
 
 .footer .social-media a:hover {
-    color: #f39c12;
+    color: #e5ae63;
 }
 
 .footer-text {
