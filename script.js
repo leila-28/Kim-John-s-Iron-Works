@@ -208,5 +208,18 @@ allCards.forEach(card => {
   });
 });
 
+// --- IMAGE SCROLL CLICK TO PAUSE ON MOBILE ---
+const scrollContent = document.querySelector(".scroll-content");
+
+if (scrollContent) {
+  scrollContent.querySelectorAll("img").forEach(img => {
+    img.addEventListener("click", () => {
+      if (window.innerWidth <= 768) { // mobile only
+        const currentState = window.getComputedStyle(scrollContent).animationPlayState;
+        scrollContent.style.animationPlayState = (currentState === "running") ? "paused" : "running";
+      }
+    });
+  });
+}
 
 
