@@ -733,6 +733,12 @@ nav .menu a:hover {
   font-weight: 500;
 }
 
+.project-card p i {
+  color: #e5ae63;
+  margin-right: 5px;
+}
+
+
 /* Before/After Overlay */
 .image-container {
   position: relative;
@@ -943,7 +949,7 @@ nav .menu a:hover {
   content: '';
   position: absolute;
   top: 0;
-  width: 120px;
+  width: 100px;
   height: 100%;
   z-index: 2;
 }
