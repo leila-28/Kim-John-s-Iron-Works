@@ -1,21 +1,26 @@
 // NAVBAR
 
-  let lastScrollTop = 0;
-  const navbar = document.querySelector("nav");
+let lastScrollTop = 0;
+const navbar = document.querySelector("nav");
 
-  window.addEventListener("scroll", function() {
+window.addEventListener("scroll", function() {
     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-    if (scrollTop > lastScrollTop) {
-      // 📉 Scrolling Down → Shrink Navbar
-      navbar.classList.add("shrink");
+    if (scrollTop > lastScrollTop && scrollTop > 50) {
+        // Scrolling down → hide navbar
+        navbar.classList.add("hidden");
+        navbar.classList.remove("scrolled");
     } else {
-      // 📈 Scrolling Up → Expand Navbar
-      navbar.classList.remove("shrink");
+        // Scrolling up → show navbar
+        navbar.classList.remove("hidden");
+        navbar.classList.add("scrolled");
     }
 
     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-  });
+});
+
+
+//   HAMBURGER MENU
 
   const hamburger = document.querySelector(".hamburger");
   const menu = document.querySelector(".menu");
@@ -74,6 +79,7 @@
 
 /*HOME*/
 
+/* HOME SLIDER */
 const slider = document.querySelector(".slider");
 const slides = document.querySelectorAll(".slide");
 const dots = document.querySelectorAll(".dot");
@@ -135,19 +141,35 @@ function prevSlide() {
     updateDots();
 }
 
-// controls
-document.querySelector(".next").addEventListener("click", nextSlide);
-document.querySelector(".prev").addEventListener("click", prevSlide);
-setInterval(nextSlide, 3000);
+/* 🔄 Autoplay */
+let slideInterval = setInterval(nextSlide, 3000);
 
-// dots
+function resetTimer() {
+    clearInterval(slideInterval);
+    slideInterval = setInterval(nextSlide, 3000);
+}
+
+/* Controls */
+document.querySelector(".next").addEventListener("click", () => {
+    nextSlide();
+    resetTimer();
+});
+
+document.querySelector(".prev").addEventListener("click", () => {
+    prevSlide();
+    resetTimer();
+});
+
+/* Dots */
 dots.forEach((dot, i) => {
     dot.addEventListener("click", () => {
         index = i + 1;
         moveToSlide(index);
         updateDots();
+        resetTimer();
     });
 });
+
 
 
 /*ABOUT*/
