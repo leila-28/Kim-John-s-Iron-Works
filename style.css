@@ -272,7 +272,7 @@ nav .menu a:hover {
     }
 
     .buttons a {
-        width: 80%;       /* occupy more width */
+        width: 50%;       /* occupy more width */
         padding: 6px;
         margin-top: 0;
         margin-right: 0;
