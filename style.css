@@ -440,6 +440,189 @@ nav .menu a:hover {
     }
 }
 
+/* PROJECTS */
+
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 25px 0;
+  padding: 0;
+}
+
+.filter-buttons a {
+  position: relative;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 8px 14px;
+  transition: color 0.3s ease;
+  white-space: nowrap; /* prevent text breaking */
+}
+
+.filter-buttons a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background-color: #333;
+  transition: width 0.3s ease;
+}
+
+.filter-buttons a:hover {
+  color: #000;
+}
+
+.filter-buttons a:hover::after,
+.filter-buttons a.active::after {
+  width: 100%;
+}
+
+.filter-buttons a.active {
+  color: #000;
+  font-weight: 600;
+}
+
+/* ✅ Responsive for mobile */
+@media (max-width: 600px) {
+  .filter-buttons {
+    gap: 8px;
+  }
+
+  .filter-buttons a {
+    font-size: 0.85rem;  /* smaller text */
+    padding: 6px 10px;   /* tighter padding */
+  }
+}
+
+.projects {
+  background: #191818;
+  color: #fff;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.projects h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #e5ae63;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  justify-items: center;
+}
+
+
+.project-card {
+  background: #2a2a2a;
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: left;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease;
+  padding: 10px;
+  width: 100%;
+  max-width: 300px; /* para consistent sizes */
+  display: none; /* lahat naka-hide muna by default, JS mag-show */
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.project-card h3 {
+  margin: 15px;
+  font-size: 1.2rem;
+}
+
+.project-card p {
+  margin: 0 15px 15px;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #ccc;
+  padding: 12px;
+  font-weight: 500;
+}
+
+.project-card p i {
+  color: #e5ae63;
+  margin-right: 5px;
+}
+
+
+/* Before/After Overlay */
+.image-container {
+  position: relative;
+}
+
+.image-container img.before {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 200px;
+  object-fit: cover;
+  opacity: 0; /* 🔹 default invisible */
+  transition: opacity 0.5s;
+}
+
+.image-container img.after {
+  width: 100%; height: 200px;
+  object-fit: cover;
+}
+
+.image-container:hover img.before {
+  opacity: 1; /* 🔹 show "before" when hovered */
+}
+
+/* See More Button */
+/* Hide extra projects */
+.project-card.hidden {
+  display: none;
+}
+
+/* See More button styling */
+.hidden-projects {
+  display: none; /* hidden by default */
+  margin-top: 20px;
+}
+
+.see-more-container {
+  text-align: center;
+  margin-top: 30px; /* button spacing from projects */
+}
+
+#seeMoreBtn {
+  background: #e5ae63;
+  color: #1c1c1c;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#seeMoreBtn:hover {
+  background: #ffcc70;
+}
+
+.project-card.hidden {
+  display: none;
+}
+
 /* ONGOING PROJECT */
 .projects-section {
   padding: 60px 40px;
@@ -617,189 +800,6 @@ nav .menu a:hover {
   .ongoing-gallery img {
     height: 100px;
   }
-}
-
-/* PROJECTS */
-
-.filter-buttons {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 15px;
-  margin: 25px 0;
-  padding: 0;
-}
-
-.filter-buttons a {
-  position: relative;
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  font-size: 1rem;
-  padding: 8px 14px;
-  transition: color 0.3s ease;
-  white-space: nowrap; /* prevent text breaking */
-}
-
-.filter-buttons a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 0%;
-  height: 2px;
-  background-color: #333;
-  transition: width 0.3s ease;
-}
-
-.filter-buttons a:hover {
-  color: #000;
-}
-
-.filter-buttons a:hover::after,
-.filter-buttons a.active::after {
-  width: 100%;
-}
-
-.filter-buttons a.active {
-  color: #000;
-  font-weight: 600;
-}
-
-/* ✅ Responsive for mobile */
-@media (max-width: 600px) {
-  .filter-buttons {
-    gap: 8px;
-  }
-
-  .filter-buttons a {
-    font-size: 0.85rem;  /* smaller text */
-    padding: 6px 10px;   /* tighter padding */
-  }
-}
-
-.projects {
-  background: #1c1c1c;
-  color: #fff;
-  padding: 50px 20px;
-  text-align: center;
-}
-
-.projects h2 {
-  font-size: 2rem;
-  margin-bottom: 30px;
-  color: #e5ae63;
-}
-
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
-  justify-items: center;
-}
-
-
-.project-card {
-  background: #2a2a2a;
-  border-radius: 10px;
-  overflow: hidden;
-  text-align: left;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-  transition: transform 0.3s ease;
-  padding: 10px;
-  width: 100%;
-  max-width: 300px; /* para consistent sizes */
-  display: none; /* lahat naka-hide muna by default, JS mag-show */
-}
-
-.project-card:hover {
-  transform: translateY(-5px);
-}
-
-.project-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  display: block;
-}
-
-.project-card h3 {
-  margin: 15px;
-  font-size: 1.2rem;
-}
-
-.project-card p {
-  margin: 0 15px 15px;
-  font-size: 0.95rem;
-  line-height: 1.4;
-  color: #ccc;
-  padding: 12px;
-  font-weight: 500;
-}
-
-.project-card p i {
-  color: #e5ae63;
-  margin-right: 5px;
-}
-
-
-/* Before/After Overlay */
-.image-container {
-  position: relative;
-}
-
-.image-container img.before {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 200px;
-  object-fit: cover;
-  opacity: 0; /* 🔹 default invisible */
-  transition: opacity 0.5s;
-}
-
-.image-container img.after {
-  width: 100%; height: 200px;
-  object-fit: cover;
-}
-
-.image-container:hover img.before {
-  opacity: 1; /* 🔹 show "before" when hovered */
-}
-
-/* See More Button */
-/* Hide extra projects */
-.project-card.hidden {
-  display: none;
-}
-
-/* See More button styling */
-.hidden-projects {
-  display: none; /* hidden by default */
-  margin-top: 20px;
-}
-
-.see-more-container {
-  text-align: center;
-  margin-top: 30px; /* button spacing from projects */
-}
-
-#seeMoreBtn {
-  background: #e5ae63;
-  color: #1c1c1c;
-  border: none;
-  padding: 12px 25px;
-  border-radius: 5px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-#seeMoreBtn:hover {
-  background: #ffcc70;
-}
-
-.project-card.hidden {
-  display: none;
 }
 
 
@@ -1087,6 +1087,60 @@ nav .menu a:hover {
     border-radius: 10px;   /* para pantay sa desktop design */
   }
 }
+
+/* OBJECTIVES */
+
+/* OBJECTIVES SECTION */
+.objectives {
+    text-align: center;
+    padding: 2rem 1rem;
+    background-color: #111;
+}
+
+.objectives h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    color: #e5ae63;
+}
+
+.objectives p {
+    font-size: 1.05rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.objectives .values {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 2rem;
+    color: white;
+}
+
+.objectives .value {
+    text-align: center;
+    max-width: 200px;
+}
+
+.objectives .value i {
+    font-size: 2rem;
+    color: #e5ae63; /* orange */
+    margin-bottom: 0.5rem;
+}
+
+.objectives .value h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.objectives .value p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
 
 /* Parallax background */
 .parallax {
