@@ -1,70 +1,54 @@
-// NAVBAR
-
-let lastScrollTop = 0;
+// ================================
+// NAVBAR SCROLL LOGIC
+// ================================
 const navbar = document.querySelector("nav");
+let lastScroll = window.scrollY;
 
-window.addEventListener("scroll", function() {
-    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+window.addEventListener("scroll", () => {
+    const currentScroll = window.scrollY;
 
-    if (scrollTop > lastScrollTop && scrollTop > 50) {
-        // Scrolling down → hide navbar
+    // Scroll down → hide navbar, Scroll up → show navbar
+    if (currentScroll > lastScroll) {
         navbar.classList.add("hidden");
+    } else {
+        navbar.classList.remove("hidden");
+    }
+
+    // Top of page → transparent, else → scrolled style
+    if (currentScroll < 50) {
         navbar.classList.remove("scrolled");
     } else {
-        // Scrolling up → show navbar
-        navbar.classList.remove("hidden");
         navbar.classList.add("scrolled");
     }
 
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    lastScroll = currentScroll;
 });
 
-
-//   HAMBURGER MENU
-
+// ================================
+// HAMBURGER MENU
+// ================================
 document.addEventListener("DOMContentLoaded", () => {
-  const hamburger = document.querySelector(".hamburger");
-  const menu = document.querySelector(".menu");
-  const nav = document.querySelector("nav");
+    const hamburger = document.querySelector(".hamburger");
+    const menu = document.querySelector(".menu");
 
-  let lastScrollY = window.scrollY;
-
-  // Toggle menu
-  hamburger.addEventListener("click", () => {
-    menu.classList.toggle("active");
-    hamburger.classList.toggle("open");
-  });
-
-  // Close menu when link clicked (mobile)
-  document.querySelectorAll(".menu a").forEach(link => {
-    link.addEventListener("click", () => {
-      menu.classList.remove("active");
-      hamburger.classList.remove("open");
+    // Toggle menu
+    hamburger.addEventListener("click", () => {
+        menu.classList.toggle("active");
+        hamburger.classList.toggle("open");
     });
-  });
 
-  // Scroll effect
-  window.addEventListener("scroll", () => {
-    if (window.innerWidth <= 768) {
-      if (window.scrollY > lastScrollY) {
-        nav.style.transform = "scaleY(0)";
-      } else {
-        nav.style.transform = "scaleY(1)";
-      }
-    } else {
-      nav.style.transform = "scaleY(1)";
-    }
-    lastScrollY = window.scrollY;
-  });
+    // Close menu when link clicked
+    document.querySelectorAll(".menu a").forEach(link => {
+        link.addEventListener("click", () => {
+            menu.classList.remove("active");
+            hamburger.classList.remove("open");
+        });
+    });
 });
 
-
-
-
-
-/*HOME*/
-
-/* HOME SLIDER */
+// ================================
+// HOME SLIDER
+// ================================
 const slider = document.querySelector(".slider");
 const slides = document.querySelectorAll(".slide");
 const dots = document.querySelectorAll(".dot");
@@ -72,35 +56,32 @@ const dots = document.querySelectorAll(".dot");
 let index = 0;
 let totalSlides = slides.length;
 
-// clone first & last slides
+// Clone first & last slides
 const firstClone = slides[0].cloneNode(true);
 const lastClone = slides[totalSlides - 1].cloneNode(true);
 slider.appendChild(firstClone);
 slider.insertBefore(lastClone, slides[0]);
 
-// adjust initial position (nasa "real first slide")
+// Initial position
 slider.style.transform = `translateX(-100%)`;
-index = 1; // dahil may lastClone sa unahan
+index = 1;
 
 function moveToSlide(n, instant = false) {
-    if (instant) {
-        slider.style.transition = "none";
-    } else {
-        slider.style.transition = "transform 0.5s ease";
-    }
+    if (instant) slider.style.transition = "none";
+    else slider.style.transition = "transform 0.5s ease";
     slider.style.transform = `translateX(-${n * 100}%)`;
 }
 
-// update dots
+// Update dots
 function updateDots() {
     dots.forEach(dot => dot.classList.remove("active"));
     let dotIndex = index - 1;
-    if (index === 0) dotIndex = totalSlides - 1; // nasa lastClone
-    if (index === totalSlides + 1) dotIndex = 0; // nasa firstClone
+    if (index === 0) dotIndex = totalSlides - 1;
+    if (index === totalSlides + 1) dotIndex = 0;
     dots[dotIndex].classList.add("active");
 }
 
-// auto + next (pa-left)
+// Next / Prev slides
 function nextSlide() {
     index++;
     moveToSlide(index);
@@ -113,7 +94,6 @@ function nextSlide() {
     updateDots();
 }
 
-// prev (pa-right)
 function prevSlide() {
     index--;
     moveToSlide(index);
@@ -126,15 +106,14 @@ function prevSlide() {
     updateDots();
 }
 
-/* 🔄 Autoplay */
+// Autoplay
 let slideInterval = setInterval(nextSlide, 3000);
-
 function resetTimer() {
     clearInterval(slideInterval);
     slideInterval = setInterval(nextSlide, 3000);
 }
 
-/* Controls */
+// Controls
 document.querySelector(".next").addEventListener("click", () => {
     nextSlide();
     resetTimer();
@@ -145,7 +124,7 @@ document.querySelector(".prev").addEventListener("click", () => {
     resetTimer();
 });
 
-/* Dots */
+// Dot navigation
 dots.forEach((dot, i) => {
     dot.addEventListener("click", () => {
         index = i + 1;
@@ -154,6 +133,7 @@ dots.forEach((dot, i) => {
         resetTimer();
     });
 });
+
 
 
 
