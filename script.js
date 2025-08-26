@@ -195,4 +195,18 @@ filterLinks.forEach(link => {
 // --- Initial load ---
 updateProjects();
 
+// --- MOBILE BEFORE/AFTER TOGGLE ---
+allCards.forEach(card => {
+  const beforeImg = card.querySelector("img.before");
+  let mobileToggle = false;
+
+  card.addEventListener("click", () => {
+    if (window.innerWidth <= 768) { // mobile only
+      mobileToggle = !mobileToggle;
+      beforeImg.style.opacity = mobileToggle ? "1" : "0";
+    }
+  });
+});
+
+
 
