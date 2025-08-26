@@ -91,6 +91,10 @@ nav .menu a:hover {
 
 /* ✅ Responsive */
 @media (max-width: 768px) {
+  nav .menu a.active {
+        color: #e5ae63; /* orange */
+    }
+  
   nav .logo img {
     height: 60px;
     margin-left: 10px;

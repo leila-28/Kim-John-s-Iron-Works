@@ -25,11 +25,12 @@ window.addEventListener("scroll", () => {
 });
 
 // ================================
-// HAMBURGER MENU
+// HAMBURGER MENU & ACTIVE LINKS
 // ================================
 document.addEventListener("DOMContentLoaded", () => {
     const hamburger = document.querySelector(".hamburger");
     const menu = document.querySelector(".menu");
+    const links = document.querySelectorAll(".menu a");
 
     // Toggle menu
     hamburger.addEventListener("click", () => {
@@ -37,9 +38,16 @@ document.addEventListener("DOMContentLoaded", () => {
         hamburger.classList.toggle("open");
     });
 
-    // Close menu when link clicked
-    document.querySelectorAll(".menu a").forEach(link => {
+    // Close menu and set active link when clicked
+    links.forEach(link => {
         link.addEventListener("click", () => {
+            // Remove active from all links
+            links.forEach(l => l.classList.remove("active"));
+
+            // Add active to clicked link
+            link.classList.add("active");
+
+            // Close menu
             menu.classList.remove("active");
             hamburger.classList.remove("open");
         });
