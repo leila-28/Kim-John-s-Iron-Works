@@ -530,7 +530,7 @@ nav .menu a:hover {
   padding: 10px;
   width: 100%;
   max-width: 300px; /* para consistent sizes */
-  display: none; /* lahat naka-hide muna by default, JS mag-show */
+  /* lahat naka-hide muna by default, JS mag-show */
 }
 
 .project-card:hover {
