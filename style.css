@@ -995,11 +995,6 @@ nav .menu a:hover {
     grid-template-columns: repeat(1, 1fr); /* 2 cards for mobile */
   }
 
-    .scroll-content img {
-    transform: scale(1.1);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-  }
-
   .image-scroll::before {
   left: 0;
   background: linear-gradient(to right, #191818 30%, transparent 100%);
