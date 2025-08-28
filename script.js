@@ -230,4 +230,17 @@ if (scrollContent) {
   });
 }
 
+if (scrollContent) {
+  scrollContent.addEventListener("click", () => {
+    if (window.innerWidth <= 768) { // mobile only
+      scrollContent.classList.toggle("paused");
+
+      // kung wala na yung class, ibabalik sa running
+      if (!scrollContent.classList.contains("paused")) {
+        scrollContent.style.animationPlayState = "running";
+      }
+    }
+  });
+}
+
 

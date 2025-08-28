@@ -803,7 +803,7 @@ nav .menu a:hover {
 }
 
 
-/* SECTION 2 */
+/* FEATURED WORKS */
 .sec2 {
   background-color: #191818;
   padding: 50px 20px;
@@ -901,9 +901,18 @@ nav .menu a:hover {
   white-space: nowrap;
 }
 
+.scroll-content {
+  transition: transform 0.3s ease;
+}
+
 /* Pause animation on hover */
 .scroll-content:hover {
   animation-play-state: paused;
+}
+
+.scroll-content.paused {
+  animation-play-state: paused;
+  transform: scale(1.05); /* lumaki ng konti pag pause */
 }
 
 .scroll-content img {
