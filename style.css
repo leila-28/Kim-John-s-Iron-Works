@@ -919,7 +919,7 @@ nav .menu a:hover {
 .scroll-content img.zoomed {
   transform: scale(1.2);
   box-shadow: 0 8px 25px rgba(0,0,0,0.6);
-  z-index: 10;
+  z-index: 3;
 } 
 
 /* Animation keyframes */
@@ -995,7 +995,7 @@ nav .menu a:hover {
     grid-template-columns: repeat(1, 1fr); /* 2 cards for mobile */
   }
 
-    .scroll-content img:hover {
+    .scroll-content img.zoomed {
     transform: scale(1.1);
     box-shadow: 0 8px 20px rgba(0,0,0,0.5);
   }
