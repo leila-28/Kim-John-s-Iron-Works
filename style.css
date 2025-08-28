@@ -840,7 +840,7 @@ nav .menu a:hover {
 .container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
+  gap: 40px;
 }
 
 .card {
@@ -891,7 +891,8 @@ nav .menu a:hover {
   width: 100%;
   overflow: hidden;
   background: #191818;
-  padding: 50px 0;
+  padding-top: 20px;
+  padding-bottom: 70px;
   position: relative; /* needed for gradient overlay */
 }
 
@@ -901,37 +902,25 @@ nav .menu a:hover {
   white-space: nowrap;
 }
 
-.scroll-content {
-  transition: transform 0.3s ease;
-}
-
 /* Pause animation on hover */
 .scroll-content:hover {
   animation-play-state: paused;
 }
 
-.scroll-content.paused {
-  animation-play-state: paused;
-  transform: scale(1.05); /* lumaki ng konti pag pause */
-}
-
 .scroll-content img {
-  width: 220px;         /* fixed width */
-  height: 150px;        /* fixed height */
-  margin: 0 20px;
-  border-radius: 12px;
-  object-fit: cover;    /* auto-crop para same size */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.scroll-content img {
-  width: 280px;        /* mas malaki width */
+  width: 300px;        /* mas malaki width */
   height: 200px;       /* mas malaki height */
   margin: 0 20px;
-  border-radius: 14px;
+  border-radius: 6px;
   object-fit: cover;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.scroll-content img.zoomed {
+  transform: scale(1.2);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+  z-index: 3;
+} 
 
 /* Animation keyframes */
 @keyframes scroll-left {
@@ -969,12 +958,12 @@ nav .menu a:hover {
 
 .image-scroll::before {
   left: 0;
-  background: linear-gradient(to right, #222 50%, transparent 100%);
+  background: linear-gradient(to right, #191818 100%, transparent 100%);
 }
 
 .image-scroll::after {
   right: 0;
-  background: linear-gradient(to left, #222 0%, transparent 100%);
+  background: linear-gradient(to left, #191818 100%, transparent 100%);
 }
 
 /* Animation keyframes */
@@ -1005,6 +994,16 @@ nav .menu a:hover {
   .project-grid {
     grid-template-columns: repeat(1, 1fr); /* 2 cards for mobile */
   }
+
+  .image-scroll::before {
+  left: 0;
+  background: linear-gradient(to right, #191818 30%, transparent 100%);
+}
+
+.image-scroll::after {
+  right: 0;
+  background: linear-gradient(to left, #191818 30%, transparent 100%);
+}
 }
 
 @media (max-width: 480px) {

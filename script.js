@@ -220,20 +220,25 @@ allCards.forEach(card => {
 const scrollContent = document.querySelector(".scroll-content");
 
 if (scrollContent) {
-  scrollContent.addEventListener("click", () => {
-    if (window.innerWidth <= 768) { // mobile only
-      // toggle "paused" class
-      scrollContent.classList.toggle("paused");
+  const imgs = scrollContent.querySelectorAll("img");
 
-      if (scrollContent.classList.contains("paused")) {
-        scrollContent.style.animationPlayState = "paused";
-      } else {
-        scrollContent.style.animationPlayState = "running";
+  imgs.forEach(img => {
+    img.addEventListener("click", () => {
+      if (window.innerWidth <= 768) { // mobile only
+        const isPaused = img.classList.contains("zoomed");
+
+        // clear all zoomed para isang image lang
+        imgs.forEach(i => i.classList.remove("zoomed"));
+
+        if (!isPaused) {
+          img.classList.add("zoomed");
+          scrollContent.style.animationPlayState = "paused"; // stop scroll
+        } else {
+          scrollContent.style.animationPlayState = "running"; // resume scroll
+        }
       }
-    }
+    });
   });
 }
-
-
 
 
