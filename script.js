@@ -220,27 +220,20 @@ allCards.forEach(card => {
 const scrollContent = document.querySelector(".scroll-content");
 
 if (scrollContent) {
-  scrollContent.querySelectorAll("img").forEach(img => {
-    img.addEventListener("click", () => {
-      if (window.innerWidth <= 768) { // mobile only
-        const currentState = window.getComputedStyle(scrollContent).animationPlayState;
-        scrollContent.style.animationPlayState = (currentState === "running") ? "paused" : "running";
-      }
-    });
-  });
-}
-
-if (scrollContent) {
   scrollContent.addEventListener("click", () => {
     if (window.innerWidth <= 768) { // mobile only
+      // toggle "paused" class
       scrollContent.classList.toggle("paused");
 
-      // kung wala na yung class, ibabalik sa running
-      if (!scrollContent.classList.contains("paused")) {
+      if (scrollContent.classList.contains("paused")) {
+        scrollContent.style.animationPlayState = "paused";
+      } else {
         scrollContent.style.animationPlayState = "running";
       }
     }
   });
 }
+
+
 
 
