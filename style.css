@@ -554,7 +554,10 @@ nav .menu a:hover {
   font-size: 0.95rem;
   line-height: 1.4;
   color: #ccc;
-  padding: 12px;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 3px;
+  padding-bottom: 3px;
   font-weight: 500;
 }
 
@@ -623,28 +626,45 @@ nav .menu a:hover {
   display: none;
 }
 
+.details-btn{
+  background-color: transparent;
+  padding: 1px;
+  border-radius: 50px;
+  width: 20%;
+  margin-left: 72%;
+  margin-top: 2%;
+  margin-bottom: 5%;
+  border-color: #e5ae63;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.details-btn:hover{
+  background-color: #222;
+}
+
+.view-details i{
+  color: #e5ae63;
+}
+
 /* 🔹 Modal Base */
 .modal {
   display: none; 
   position: fixed; 
   z-index: 9999; 
-  left: 0; 
-  top: 0; 
-  width: 100%; 
-  height: 100%; 
-  overflow: auto; 
+  inset: 0;
   background: rgba(0,0,0,0.85);
+  overflow-y: auto;
 }
 
 /* 🔹 Modal Box */
 .modal-content {
-  background: #1f1f1f;
-  margin: 5% auto;
+  background: #fff;
+  margin: 10% auto 10px auto;
   padding: 20px;
   border-radius: 10px;
   width: 90%;
   max-width: 900px;
-  color: #fff;
+  color: #000;
   text-align: center;
   position: relative;
 }
@@ -687,6 +707,54 @@ nav .menu a:hover {
 }
 .modal-gallery img:hover {
   transform: scale(1.05);
+}
+
+@media (max-width: 1024px) {
+  .modal-content {
+    width: 95%;  /* mas malapad para sa tablet */
+    margin: 10% auto 10px auto;
+    padding: 15px;
+  }
+
+  .modal-gallery img {
+    width: 150px; /* lumiit para magkasya */
+  }
+}
+
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95%;  /* halos buong screen sa phone */
+    margin: 50% auto 10px auto;
+    padding: 12px;
+  }
+
+  .modal-content h2 {
+    font-size: 20px; /* lumiit yung title */
+  }
+
+  .modal-content p {
+    font-size: 14px; /* mas readable sa maliit na screen */
+  }
+
+  .modal-gallery {
+    gap: 10px;
+  }
+
+  .modal-gallery img {
+    width: 120px; /* mas maliit para hindi lumagpas sa lapad ng phone */
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-content {
+    width: 98%;
+    margin: 20% auto 5px auto;
+    padding: 10px;
+  }
+
+  .modal-gallery img {
+    width: 100%; /* full width per row sa sobrang liit na screen */
+  }
 }
 
 /* 🔹 Fullscreen image (lightbox) */
