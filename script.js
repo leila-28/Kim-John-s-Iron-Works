@@ -211,10 +211,183 @@ allCards.forEach(card => {
   card.addEventListener("click", () => {
     if (window.innerWidth <= 768) { // mobile only
       mobileToggle = !mobileToggle;
-      beforeImg.style.opacity = mobileToggle ? "1" : "0";
+      if (beforeImg) {
+        beforeImg.style.opacity = mobileToggle ? "1" : "0";
+      }
     }
   });
 });
+
+
+// ------------------------------------------------------------
+// ✅ PROJECT DETAILS MODAL + LIGHTBOX
+// ------------------------------------------------------------
+const modal = document.getElementById("projectModal");
+const closeBtn = document.querySelector(".close");
+const modalTitle = document.getElementById("modalTitle");
+const modalLocation = document.getElementById("modalLocation");
+const modalDescription = document.getElementById("modalDescription");
+const modalGallery = document.getElementById("modalGallery");
+
+// 🔹 Lightbox
+const lightbox = document.createElement("div");
+lightbox.classList.add("lightbox");
+document.body.appendChild(lightbox);
+const lightboxImg = document.createElement("img");
+lightbox.appendChild(lightboxImg);
+
+function openLightbox(src) {
+  lightboxImg.src = src;
+  lightbox.style.display = "flex";
+}
+lightbox.addEventListener("click", () => lightbox.style.display = "none");
+
+// ------------------------------------------------------------
+// ✅ Project Data (lahat ng projects mo dito naka-lista)
+// ------------------------------------------------------------
+const projectData = {
+  project1: {
+    title: "House Renovation",
+    location: "Purok 2 Balungao, Calumpit, Bulacan",
+    description: "Home renovation featuring modern finishes, enhanced structural safety, and durable stainless rails installation.",
+    images: ["beforee.jpg", "after.jpg"]
+  },
+  project2: {
+    title: "Trusses Arc Roof Installation",
+    location: "LA Residencia, Calumpit, Bulacan",
+    description: "Installation of trussed arc roof system for enhanced structural support and long-term durability.",
+    images: ["trusses_before.jpg", "trusses_after.jpg"]
+  },
+  project3: {
+    title: "Stainless Railings with Gold design",
+    location: "Bulacan",
+    description: "Elegant stainless railings enhanced with gold accents for a durable and luxurious finish.",
+    images: ["rails2.jpg", "rails.jpg"]
+  },
+  project4: {
+    title: "Gate",
+    location: "Bulacan",
+    description: "Modern gate design that combines protection with sleek visual appeal.",
+    images: ["gate4_before.jpg", "gate4_after.jpg"]
+  },
+  project5: {
+    title: "Roof Framing, Polycarbonate remove and installed",
+    location: "Sampaguita Street, Las Piñas City",
+    description: "Roof framing completed with precise polycarbonate removal and installation for durability and protection.",
+    images: ["roofframming_before.jpg", "roofframming_after.jpg"]
+  },
+  project6: {
+    title: "Flood Gate",
+    location: "La Residencia, Calumpit, Bulacan",
+    description: "Strong, durable flood gate installation combining security and sleek design.",
+    images: ["floodgate_before.jpg", "floodgate_after.jpg"]
+  },
+  project7: {
+    title: "Trusses/Roof Framing Installation",
+    location: "LA Residencia, Calumpit, Bulacan",
+    description: "Professional installation of trusses and roof framing to ensure structural integrity.",
+    images: ["trusses2_before.jpg", "trusses2_after.jpg"]
+  },
+  project8: {
+    title: "Roof Framing and Installation",
+    location: "Pinag Bakahan, Malolos, Bulacan",
+    description: "Roof framing and installation completed with precision for durability and safety.",
+    images: ["roof4_before.jpg", "roof4_after.jpg"]
+  },
+  project9: {
+    title: "Roof Framing & Paint + Sliding Gate Installation",
+    location: "Agro Industrial, Calumpit, Bulacan",
+    description: "Roof framing with paint finish and sliding gate installation for enhanced durability and style.",
+    images: ["roof & gate_before.jpg", "roof & gate_after.jpg"]
+  },
+  project10: {
+    title: "Roof Framing",
+    location: "LA Residencia, Calumpit, Bulacan",
+    description: "Roof framing for structural strength and durability.",
+    images: ["roof5_before.jpg", "roof5_after.jpg"]
+  },
+  project11: {
+    title: "Signage",
+    location: "Las Piñas City",
+    description: "Durable and high-impact signage built for visibility, safety, and modern appeal.",
+    images: ["sinage_before.jpg", "sinage_after.jpg"]
+  },
+  project12: {
+    title: "Roof Framing and Installation",
+    location: "Calumpit, Bulacan",
+    description: "Durable roof framing and precise installation ensuring structural strength and weather protection.",
+    images: ["roof6_before.png", "roof6_after.png"]
+  },
+  project13: {
+    title: "Renovation and Extension",
+    location: "Calumpit, Bulacan",
+    description: "Reliable renovation and seamless extensions that upgrade spaces with strength, style, and lasting value.",
+    images: ["renovation2_before.png", "renovation2_after.png"]
+  },
+  project14: {
+    title: "Gate",
+    location: "Calumpit, Bulacan",
+    description: "Strong and secure gate installation combining durability, functionality, and modern design.",
+    images: ["gatee.jpg", "gate2.jpg"]
+  },
+  project15: {
+    title: "Gate",
+    location: "Calumpit, Bulacan",
+    description: "High-quality gate installation combining robust protection with a sleek finish.",
+    images: ["gate3_before.jpg", "gate3.jpg"]
+  },
+  project16: {
+    title: "Roll Up Doors",
+    location: "Bulacan",
+    description: "Heavy-duty roll-up doors built to secure spaces while allowing smooth and effortless access.",
+    images: ["rollup2.2.jpg", "rollup2.jpg"]
+  },
+  project17: {
+    title: "OG Billiard Renovation",
+    location: "Apalit, Pampanga",
+    description: "Custom renovation enhancing safety, durability, and aesthetic appeal for a billiard shop.",
+    images: ["OGBilliard_Before.jpg", "OGBillliard_After.jpg"]
+  },
+  project18: {
+    title: "Roll Up Doors",
+    location: "Pio Cruzcosa, Calumpit, Bulacan",
+    description: "Secure and durable roll-up doors with precision installation.",
+    images: ["rollup_before.jpg", "rollup_after.jpg"]
+  }
+};
+
+// ------------------------------------------------------------
+// ✅ Hook up "View Details" buttons
+// ------------------------------------------------------------
+document.querySelectorAll(".view-details button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const projectId = btn.dataset.project;
+    const data = projectData[projectId];
+    if (!data) return;
+
+    modalTitle.textContent = data.title;
+    modalLocation.textContent = data.location;
+    modalDescription.textContent = data.description;
+
+    modalGallery.innerHTML = "";
+    data.images.forEach(img => {
+      const imageEl = document.createElement("img");
+      imageEl.src = img;
+      modalGallery.appendChild(imageEl);
+
+      imageEl.addEventListener("click", () => {
+        openLightbox(img);
+      });
+    });
+
+    modal.style.display = "block";
+  });
+});
+
+// Close modal
+closeBtn.onclick = () => modal.style.display = "none";
+window.onclick = (e) => { if (e.target == modal) modal.style.display = "none"; };
+
 
 // --- IMAGE SCROLL CLICK TO PAUSE ON MOBILE ---
 const scrollContent = document.querySelector(".scroll-content");

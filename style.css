@@ -623,6 +623,90 @@ nav .menu a:hover {
   display: none;
 }
 
+/* 🔹 Modal Base */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 9999; 
+  left: 0; 
+  top: 0; 
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background: rgba(0,0,0,0.85);
+}
+
+/* 🔹 Modal Box */
+.modal-content {
+  background: #1f1f1f;
+  margin: 5% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 900px;
+  color: #fff;
+  text-align: center;
+  position: relative;
+}
+
+.modal-content h2 {
+  color: #e5ae63;
+  margin-bottom: 10px;
+}
+
+.modal-content p {
+  margin: 8px 0;
+  color: #ccc;
+}
+
+/* 🔹 Close Button */
+.close {
+  color: #aaa;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  cursor: pointer;
+}
+.close:hover { color: #fff; }
+
+/* 🔹 Gallery inside modal */
+.modal-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.modal-gallery img {
+  width: 200px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.modal-gallery img:hover {
+  transform: scale(1.05);
+}
+
+/* 🔹 Fullscreen image (lightbox) */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+}
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+}
+
+
 /* ONGOING PROJECT */
 .projects-section {
   padding: 60px 40px;
