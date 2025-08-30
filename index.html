@@ -8,13 +8,10 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
-
-    <!-- FAVICON -->
     <link rel="icon" type="image/png" href="logo_title.png">
 </head>
 
 <body>
-    <!-- NAVBAR -->
     <nav>
         <div class="nav">
             <div class="logo">
@@ -32,7 +29,6 @@
         </div>
     </nav>
 
-    <!-- HOME PAGE -->
     <section class="cover" id = "home">
         <div class="slider">
             <div class="slide active">
@@ -48,34 +44,24 @@
             </div>
             <div class="slide">
                 <img src="highlight1.png" alt="Cover 2" class="cover-img">
-                <div class="cover-text2">
-                    <!-- <h2>House Renovation</h2>
-                    <p>Durable renovations crafted for lasting beauty and modern living.</p> -->
-                </div>
+                <div class="cover-text2"></div>
             </div>
             <div class="slide">
                 <img src="highlight2.png" alt="Cover 3" class="cover-img">
-                <div class="cover-text2">
-                    <!-- <h2>Covered Court Roof Framing and Installation</h2>
-                    <p>High-quality roofing solutions for durable and reliable courts.</p> -->
-                </div>
+                <div class="cover-text2"></div>
             </div>
             <div class = "bottom-line"></div>
         </div>
-        <!-- Prev Button -->
-<button class="prev">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="24" height="24">
-    <path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
-  </svg>
-</button>
-
-<!-- Next Button -->
-<button class="next">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="24" height="24">
-    <path d="M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6z"/>
-  </svg>
-</button>
-        <!-- Banner bottom dots -->
+        <button class="prev">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="24" height="24">
+                <path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+            </svg>
+        </button>
+        <button class="next">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="24" height="24">
+                <path d="M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6z"/>
+            </svg>
+        </button>
         <div class="banner-buttons">
             <span class="dot active"></span>
             <span class="dot"></span>
@@ -83,7 +69,6 @@
         </div>
     </section>
 
-    <!-- WELCOME HEADER -->
     <section class="welcome-header">
         <div class="header-text">
             <h3 class="header-title">Welcome to <span class="header-companyname">Kim John’s Iron Works</span></h3>
@@ -91,10 +76,8 @@
         <div class="header-information">We are a dedicated metal fabrication workshop, specializing in custom iron gates, railings, grills, and structural metalwork. With skilled craftsmanship and durable materials, we create high-quality designs that combine strength, functionality, and style for both residential and commercial projects.</div>
     </section>
 
-    <!-- PROJECTS -->
     <section class="projects" id = "projects">
         <h2>PROJECTS</h2>
-        <!-- Filter buttons -->
         <div class="filter-buttons">
             <a href="#" data-filter="all">All</a>
             <a href="#" data-filter="roof">Roof</a>
@@ -105,7 +88,6 @@
             <a href="#" data-filter="renovation">Renovation</a>
         </div>
         <div class="project-grid">
-            <!-- Project 1 -->
             <div class="project-card" data-category="renovation">
                 <div class="image-container">
                     <img src="beforee.jpg" alt="Rails Before" class="before">
@@ -118,9 +100,7 @@
                     <button class="details-btn" data-project="project1"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
                 </div>
             </div>
-
-            <!-- Project 2 -->
-             <div class="project-card" data-category="roof">
+            <div class="project-card" data-category="roof">
                 <div class="image-container">
                     <img src="trusses_before.jpg" alt="Trusses Before" class="before">
                     <img src="trusses_after.jpg" alt="Trusses After" class="after">
@@ -132,8 +112,7 @@
                     <button class="details-btn" data-project="project2"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
                 </div>
             </div>
-            <!-- Project 3 -->
-             <div class="project-card" data-category="rails">
+            <div class="project-card" data-category="rails">
                 <div class="image-container">
                     <img src="rails2.jpg" alt="Extra Project Before" class="before">
                     <img src="rails.jpg" alt="Gate Project After" class="after">
@@ -145,7 +124,6 @@
                     <button class="details-btn" data-project="project3"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
                 </div>
             </div>
-            <!-- Project 4 -->
             <div class="project-card" data-category="gate">
                 <div class="image-container">
                     <img src="gate4_before.jpg" alt="Extra Project Before" class="before">
@@ -158,7 +136,6 @@
                     <button class="details-btn" data-project="project4"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
                 </div>
             </div>
-            <!-- Project 5 -->
             <div class="project-card" data-category="roof">
                 <div class="image-container">
                     <img src="roofframming_before.jpg" alt="Roof Framing before" class="before">
@@ -171,7 +148,6 @@
                     <button class="details-btn" data-project="project5"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
                 </div>
             </div>
-            <!-- Hidden projects -->
             <div class="project-card hidden" data-category="gate">
                 <div class="image-container">
                     <img src="floodgate_before.jpg" alt="Gate Before" class="before">
@@ -330,13 +306,11 @@
             </div>
             </div>
         </div>
-        <!-- See More / See Less button -->
         <div class="see-more-container">
             <button id="seeMoreBtn">See More</button>
         </div>
     </section>
 
-    <!-- ONGOING PROJECT -->
     <div class="projects-section" id = "ongoing">
         <h2>Ongoing</h2>
         <h3>Project</h3>
@@ -367,53 +341,44 @@
         </div>
     </div>
 
-    <!-- SECTION 2 --> 
-<section class="sec2" id="sec2">
-  <h2>Featured Works</h2>
-  <div class="container">
-    
-    <div class="card">
-      <div class="video-wrapper">
-        <video controls>
-          <source src="ongoing_vid.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="card-text">Roof Project</div>
-    </div>
+    <section class="sec2" id="sec2">
+        <h2>Featured Works</h2>
+        <div class="container">
+            <div class="card">
+                <div class="video-wrapper">
+                    <video controls>
+                        <source src="ongoing_vid.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="card-text">Roof Project</div>
+            </div>
+            <div class="card">
+                <div class="video-wrapper">
+                    <video controls>
+                        <source src="video2.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="card-text">Roof Project</div>
+            </div>
+            <div class="card">
+                <div class="video-wrapper">
+                    <video controls>
+                        <source src="video3.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="card-text">Gate Project</div>
+            </div>
+            <div class="card">
+                <div class="video-wrapper">
+                    <video controls>
+                        <source src="video4.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="card-text">Gate Project</div>
+            </div>
+        </div>
+    </section>
 
-    <div class="card">
-      <div class="video-wrapper">
-        <video controls>
-          <source src="video2.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="card-text">Roof Project</div>
-    </div>
-
-    <div class="card">
-      <div class="video-wrapper">
-        <video controls>
-          <source src="video3.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="card-text">Gate Project</div>
-    </div>
-
-    <div class="card">
-      <div class="video-wrapper">
-        <video controls>
-          <source src="video4.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="card-text">Gate Project</div>
-    </div>
-
-  </div>
-</section>
-
-
-
-    <!-- IMAGE SCROLL SECTION -->
     <section class="image-scroll">
         <div class="scroll-wrapper">
             <div class="scroll-content">
@@ -422,7 +387,6 @@
                 <img src="image.png" alt="Image 3">
                 <img src="card1.jpg" alt="Image 4">
                 <img src="gate.jpg" alt="Image 5">
-                <!-- duplicate para seamless loop -->
                 <img src="rails.jpg" alt="Image 6">
                 <img src="OG_2.jpg" alt="Image 7">
                 <img src="signage.jpg" alt="Image 8">
@@ -432,24 +396,20 @@
         </div>
     </section>
 
-    <!-- SERVICES -->
     <section class="services" id = "services">
         <h2>OUR SERVICES</h2>
         <div class="services-grid">
             <div class="service">
                 <h3>01 IRON WORKS</h3>
                 <P>Fabrication and Installation of Structural and Architectural Steel Works</P>
-                <!-- <p>Elegant, high-impact visuals that elevate each property’s unique essence.</p> -->
             </div>
             <div class="service">
                 <h3>02 COMMERCIAL CONSTRUCTION</h3>
                 <p>From high rise buildings to retail complexes we provide our clients business needs.</p>
-                <!-- <p>Smart, refined layouts that seamlessly harmonize with the natural landscape.</p> -->
             </div>
             <div class="service">
                 <h3>03 RESIDENTIAL CONSTRUCTION</h3>
                 <p>We build luxurious homes apartments, and other housing developments</p>
-                <!-- <p>Timeless architecture blending form, function, and sophistication.</p> -->
             </div>
             <div class="service">
                 <h3>04 PROJECT MANAGEMENT</h3>
@@ -466,136 +426,116 @@
         </div>
     </section>
 
-    <!-- OBJECTIVES SECTION -->
-<section class="objectives" id = "objectives">
-    <h2>WHY DO WE CHOOSE</h2>
-
-    <p>OUR OBJECTIVES IS TO PROVIDE OUR CLIENTS WITH AN <strong>“IM ASSURED”</strong> EXPERIENCE WHEN WE ARE CHOSEN TO EXECUTE THEIR PROJECTS.</p>
-    <p>WE ARE COMMITTED TO DELIVERING PROJECTS THAT ARE ENVIRONMENTALLY FRIENDLY, SOCIALLY RESPONSIBLE AND ECONOMICALLY VIABLE.</p>
-
-    <div class="values">
-        <div class="value">
-            <i class="fa fa-balance-scale"></i>
-            <h3>INTEGRITY</h3>
-            <p>Conducting business with honesty and transparency.</p>
-        </div>
-
-        <div class="value">
-            <i class="fa fa-trophy"></i>
-            <h3>QUALITY</h3>
-            <p>Ensuring excellence in every aspect of work.</p>
-        </div>
-
-        <div class="value">
-            <i class="fa fa-shield"></i>
-            <h3>SAFETY</h3>
-            <p>Prioritizing the health and safety of our employees, clients, and the public.</p>
-        </div>
-    </div>
-</section>
-
-
-
-<div class="parallax" id="about">
-  <h1 class="parallax-text">
-    <span class="Bold-text">ABOUT</span>
-  </h1>
-</div>
-
-<!-- About -->
-<section class="About">
-  <div class="card-contents">
-    <p>
-      Kim John's Iron Works was established in 2020.
-      <br><br>
-      Our company is <strong>PCAB Accredited with License #P00000617. </strong>
-      <br><br>
-      Also registered in <strong>SEC No. 202460154939-01</strong>.
-    </p>
-
-    <h6 class="visionDesc">
-      Over the years, our company has undertaken many challenging projects, from small builds to large-scale developments.
-    </h6>
-    <h6 class="missionDesc">
-      We are determined to explore opportunities that require our expertise, allowing us to grow, innovate, and deliver excellence in the coming years.
-    </h6>
-  </div>
-</section>
-
-
-   <!-- Footer Top -->
-<section class="cover8" id="footerTB">
-    <div class="logo_footer">
-        <a href="#home">
-            <img src="logo.png" alt="Company Logo">
-        </a>
-        <b>KIM JOHN'S IRON WORKS</b>
-        <p class="tagline">Quality Metal Works Since 2020</p>
-    </div>
-
-    <div class="cover8-content">
-        <div class="quick-links">
-            <b>Quick Links</b>
-            <div class="links-grid">
-                <a href="#home">Home</a>
-                <a href="#ongoing">Ongoing</a>
-                <a href="#projects">Projects</a>
-                <a href="#sec2">Featured</a>
-                <a href="#services">Services</a>
-                <a href="#objectives">Objectives</a>
-                <a href="#about">About</a>
-                <a href="#contact">Contact</a>
+    <section class="objectives" id = "objectives">
+        <h2>WHY DO WE CHOOSE</h2>
+        <p>OUR OBJECTIVES IS TO PROVIDE OUR CLIENTS WITH AN <strong>“IM ASSURED”</strong> EXPERIENCE WHEN WE ARE CHOSEN TO EXECUTE THEIR PROJECTS.</p>
+        <p>WE ARE COMMITTED TO DELIVERING PROJECTS THAT ARE ENVIRONMENTALLY FRIENDLY, SOCIALLY RESPONSIBLE AND ECONOMICALLY VIABLE.</p>
+        <div class="values">
+            <div class="value">
+                <i class="fa fa-balance-scale"></i>
+                <h3>INTEGRITY</h3>
+                <p>Conducting business with honesty and transparency.</p>
+            </div>
+            <div class="value">
+                <i class="fa fa-trophy"></i>
+                <h3>QUALITY</h3>
+                <p>Ensuring excellence in every aspect of work.</p>
+            </div>
+            <div class="value">
+                <i class="fa fa-shield"></i>
+                <h3>SAFETY</h3>
+                <p>Prioritizing the health and safety of our employees, clients, and the public.</p>
             </div>
         </div>
+    </section>
 
-        <div class="contact-info">
-            <b>Contact Us</b>
-            <a href="tel:+639507220678"><i class="fa fa-phone"><br></i> +63 950 722 0678</a>
-            <a href="mailto:kimjohnsironworks@gmail.com"><i class="fa fa-envelope"></i> kimjohnsironworks@gmail.com</a>
-            <a href="https://www.google.com/maps?q=BLK+17+Lot+6+Yakal+St.+Northville+9+Iba+O'+Este+3003+Calumpit,+Bulacan,+Philippines" target="_blank">
-                <i class="fa fa-map-marker"><br></i> 
-                BLK 17 Lot 6 Yakal St. Northville 9 Iba O' Este 3003 Calumpit, Bulacan, Philippines
+    <div class="parallax" id="about">
+        <h1 class="parallax-text">
+            <span class="Bold-text">ABOUT</span>
+        </h1>
+    </div>
+
+    <section class="About">
+        <div class="card-contents">
+            <p>
+                Kim John's Iron Works was established in 2020.
+                <br><br>
+                Our company is <strong>PCAB Accredited with License #P00000617. </strong>
+                <br><br>
+                Also registered in <strong>SEC No. 202460154939-01</strong>.
+            </p>
+            <h6 class="visionDesc">
+                Over the years, our company has undertaken many challenging projects, from small builds to large-scale developments.
+            </h6>
+            <h6 class="missionDesc">
+                We are determined to explore opportunities that require our expertise, allowing us to grow, innovate, and deliver excellence in the coming years.
+            </h6>
+        </div>
+    </section>
+
+    <section class="cover8" id="footerTB">
+        <div class="logo_footer">
+            <a href="#home">
+                <img src="logo.png" alt="Company Logo">
             </a>
+            <b>KIM JOHN'S IRON WORKS</b>
+            <p class="tagline">Quality Metal Works Since 2020</p>
         </div>
+        <div class="cover8-content">
+            <div class="quick-links">
+                <b>Quick Links</b>
+                <div class="links-grid">
+                    <a href="#home">Home</a>
+                    <a href="#ongoing">Ongoing</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#sec2">Featured</a>
+                    <a href="#services">Services</a>
+                    <a href="#objectives">Objectives</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+            <div class="contact-info">
+                <b>Contact Us</b>
+                <a href="tel:+639507220678"><i class="fa fa-phone"><br></i> +63 950 722 0678</a>
+                <a href="mailto:kimjohnsironworks@gmail.com"><i class="fa fa-envelope"></i> kimjohnsironworks@gmail.com</a>
+                <a href="https://www.google.com/maps?q=BLK+17+Lot+6+Yakal+St.+Northville+9+Iba+O'+Este+3003+Calumpit,+Bulacan,+Philippines" target="_blank">
+                    <i class="fa fa-map-marker"><br></i> 
+                    BLK 17 Lot 6 Yakal St. Northville 9 Iba O' Este 3003 Calumpit, Bulacan, Philippines
+                </a>
+            </div>
+            <div class="company-info">
+                <b>Company Info</b>
+                <p>PCAB License No.: <span>P00000617</span></p>
+                <p>SEC Reg. No.: <span>202460154939-01</span></p>
+                <p>Established: 2020</p>
+            </div>
+        </div>
+    </section>
 
-        <div class="company-info">
-            <b>Company Info</b>
-            <p>PCAB License No.: <span>P00000617</span></p>
-            <p>SEC Reg. No.: <span>202460154939-01</span></p>
-            <p>Established: 2020</p>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-media">
+                <p>Follow Us</p>
+                <a href="https://www.facebook.com/share/16jwTivMrU/" class="fb"><i class="fa fa-facebook"></i></a>
+                <a href="#" class="tw"><i class="fa fa-twitter"></i></a>
+                <a href="#" class="ig"><i class="fa fa-instagram"></i></a>
+                <a href="https://www.facebook.com/share/1CkLdiix95/" class="li"><i class="fa fa-columns"></i></a>
+                <a href="tel:+639507220678" class="wa"><i class="fa fa-phone"></i></a>
+            </div>
+            <p class="footer-text">© 2025 KIM JOHN'S IRON WORKS. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <p id="modalLocation"></p>
+            <p id="modalDescription"></p>
+            <div class="modal-gallery" id="modalGallery"></div>
         </div>
     </div>
-</section>
-
-<!-- Footer Bottom -->
-<footer class="footer">
-    <div class="footer-content">
-        <div class="social-media">
-            <p>Follow Us</p>
-            <a href="https://www.facebook.com/share/16jwTivMrU/" class="fb"><i class="fa fa-facebook"></i></a>
-            <a href="#" class="tw"><i class="fa fa-twitter"></i></a>
-            <a href="#" class="ig"><i class="fa fa-instagram"></i></a>
-            <a href="https://www.facebook.com/share/1CkLdiix95/" class="li"><i class="fa fa-columns"></i></a>
-            <a href="tel:+639507220678" class="wa"><i class="fa fa-phone"></i></a>
-        </div>
-        <p class="footer-text">© 2025 KIM JOHN'S IRON WORKS. All rights reserved.</p>
-    </div>
-</footer>
-
-    <!-- ✅ Modal -->
-<div id="projectModal" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    
-    <h2 id="modalTitle"></h2>
-    <p id="modalLocation"></p>
-    <p id="modalDescription"></p>
-
-    <div class="modal-gallery" id="modalGallery"></div>
-  </div>
-</div>
-
-
 
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>

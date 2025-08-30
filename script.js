@@ -242,15 +242,13 @@ function openLightbox(src) {
 }
 lightbox.addEventListener("click", () => lightbox.style.display = "none");
 
-// ------------------------------------------------------------
-// ✅ Project Data (lahat ng projects mo dito naka-lista)
-// ------------------------------------------------------------
+// Project Data
 const projectData = {
   project1: {
     title: "House Renovation",
     location: "Purok 2 Balungao, Calumpit, Bulacan",
     description: "Home renovation featuring modern finishes, enhanced structural safety, and durable stainless rails installation.",
-    images: ["beforee.jpg", "after.jpg"]
+    images: ["after.jpg", "HR_03.jpg","HR_06.jpg", "HR_04.jpg", "HR_05.jpg", "beforee.jpg","HR_08.jpg", "HR_07.jpg"]
   },
   project2: {
     title: "Trusses Arc Roof Installation",
