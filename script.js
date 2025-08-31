@@ -254,55 +254,55 @@ const projectData = {
     title: "Trusses Arc Roof Installation",
     location: "LA Residencia, Calumpit, Bulacan",
     description: "Installation of trussed arc roof system for enhanced structural support and long-term durability.",
-    images: ["trusses_before.jpg", "trusses_after.jpg"]
+    images: ["trusses_before.jpg", "trusses_after.jpg", "v.jpg","v1.jpg","v2.jpg","v3.jpg","v4.jpg","v5.jpg"]
   },
   project3: {
     title: "Stainless Railings with Gold design",
     location: "Bulacan",
     description: "Elegant stainless railings enhanced with gold accents for a durable and luxurious finish.",
-    images: ["rails2.jpg", "rails.jpg"]
+    images: ["rails2.jpg", "rails.jpg","1.jpg","2.jpg","4.jpg"]
   },
   project4: {
     title: "Gate",
     location: "Bulacan",
     description: "Modern gate design that combines protection with sleek visual appeal.",
-    images: ["gate4_before.jpg", "gate4_after.jpg"]
+    images: ["gate4_before.jpg", "gate4_after.jpg","m.jpg","m1.jpg","m2.jpg","m3.jpg"]
   },
   project5: {
     title: "Roof Framing, Polycarbonate remove and installed",
     location: "Sampaguita Street, Las Piñas City",
     description: "Roof framing completed with precise polycarbonate removal and installation for durability and protection.",
-    images: ["roofframming_before.jpg", "roofframming_after.jpg"]
+    images: ["roofframming_before.jpg", "roofframming_after.jpg","y1.jpg","y2.jpg","y3.jpg","y4.jpg","y5.jpg","y6.jpg"]
   },
   project6: {
     title: "Flood Gate",
     location: "La Residencia, Calumpit, Bulacan",
     description: "Strong, durable flood gate installation combining security and sleek design.",
-    images: ["floodgate_before.jpg", "floodgate_after.jpg"]
+    images: ["floodgate_before.jpg", "floodgate_after.jpg","r1.jpg","r2.jpg"]
   },
   project7: {
     title: "Trusses/Roof Framing Installation",
     location: "LA Residencia, Calumpit, Bulacan",
     description: "Professional installation of trusses and roof framing to ensure structural integrity.",
-    images: ["trusses2_before.jpg", "trusses2_after.jpg"]
+    images: ["trusses2_before.jpg", "trusses2_after.jpg","h1.jpg","h3.jpg"]
   },
   project8: {
     title: "Roof Framing and Installation",
     location: "Pinag Bakahan, Malolos, Bulacan",
     description: "Roof framing and installation completed with precision for durability and safety.",
-    images: ["roof4_before.jpg", "roof4_after.jpg"]
+    images: ["roof4_before.jpg", "roof4_after.jpg","a.jpg","b.jpg","c.jpg","d.jpg","e.jpg"]
   },
   project9: {
     title: "Roof Framing & Paint + Sliding Gate Installation",
     location: "Agro Industrial, Calumpit, Bulacan",
     description: "Roof framing with paint finish and sliding gate installation for enhanced durability and style.",
-    images: ["roof & gate_before.jpg", "roof & gate_after.jpg"]
+    images: ["roof & gate_before.jpg", "roof & gate_after.jpg","o1.jpg","g1.jpg","g2.jpg","g3.jpg","g5.jpg","g6.jpg"]
   },
   project10: {
     title: "Roof Framing",
     location: "LA Residencia, Calumpit, Bulacan",
     description: "Roof framing for structural strength and durability.",
-    images: ["roof5_before.jpg", "roof5_after.jpg"]
+    images: ["roof5_before.jpg", "roof5_after.jpg","f1.jpg","f2.jpg","f3.jpg","f4.jpg"]
   },
   project11: {
     title: "Signage",
