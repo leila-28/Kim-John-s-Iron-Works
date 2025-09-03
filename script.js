@@ -143,6 +143,53 @@ dots.forEach((dot, i) => {
 });
 
 
+// ONGOING
+
+const viewBtn = document.getElementById("viewMoreBtn");
+const gallery = document.getElementById("ongoingGallery");
+
+// dalawang set ng 8 pictures
+const set1 = [
+  "OG_1.jpg","OG_2.jpg","OG_3.jpg","OG_4.jpg",
+  "OG_5.jpg","OG_6.jpg","OG_7.jpg","OG_8.jpg"
+];
+const set2 = [
+  "OG_9.jpg","OG_10.jpg","OG_11.jpg","OG_12.jpg",
+  "OG_13.jpg","OG_14.jpg","OG_15.jpg","OG_16.jpg"
+];
+
+let showingSet = 1;
+
+viewBtn.addEventListener("click", () => {
+  gallery.style.transform = "translateX(-100%)"; // slide out left
+
+  setTimeout(() => {
+    // palitan ng bagong set
+    gallery.innerHTML = "";
+    const newSet = document.createElement("div");
+    newSet.classList.add("gallery-set");
+
+    const pics = showingSet === 1 ? set2 : set1;
+    pics.forEach(src => {
+      const img = document.createElement("img");
+      img.src = src;
+      img.alt = "Gallery";
+      newSet.appendChild(img);
+    });
+
+    gallery.appendChild(newSet);
+
+    // balik sa kanan then slide in
+    gallery.style.transform = "translateX(100%)";
+    setTimeout(() => {
+      gallery.style.transform = "translateX(0)";
+    }, 50);
+
+    // toggle state
+    showingSet = showingSet === 1 ? 2 : 1;
+    viewBtn.textContent = showingSet === 1 ? "View More" : "View Less";
+  }, 600);
+});
 
 
 // PROJECT
@@ -308,7 +355,7 @@ const projectData = {
     title: "Signage",
     location: "Las Piñas City",
     description: "Durable and high-impact signage built for visibility, safety, and modern appeal.",
-    images: ["sinage_before.jpg", "sinage_after.jpg"]
+    images: ["sinage_before.jpg", "sinage_after.jpg","p1.jpg","p2.jpg","p3.jpg","p4.jpg"]
   },
   project12: {
     title: "Roof Framing and Installation",
@@ -326,33 +373,34 @@ const projectData = {
     title: "Gate",
     location: "Calumpit, Bulacan",
     description: "Strong and secure gate installation combining durability, functionality, and modern design.",
-    images: ["gatee.jpg", "gate2.jpg"]
+    images: ["gatee.jpg", "gate2.jpg","d1.jpg","d2.jpg","d3.jpg"]
   },
   project15: {
     title: "Gate",
     location: "Calumpit, Bulacan",
     description: "High-quality gate installation combining robust protection with a sleek finish.",
-    images: ["gate3_before.jpg", "gate3.jpg"]
+    images: ["gate3_before.jpg", "gate3.jpg","z1.jpg","z2.jpg","z3.jpg"]
   },
   project16: {
     title: "Roll Up Doors",
     location: "Bulacan",
     description: "Heavy-duty roll-up doors built to secure spaces while allowing smooth and effortless access.",
-    images: ["rollup2.2.jpg", "rollup2.jpg"]
+    images: ["rollup2.2.jpg", "rollup2.jpg","i1.jpg","i2.jpg"]
   },
   project17: {
     title: "OG Billiard Renovation",
     location: "Apalit, Pampanga",
     description: "Custom renovation enhancing safety, durability, and aesthetic appeal for a billiard shop.",
-    images: ["OGBilliard_Before.jpg", "OGBillliard_After.jpg"]
+    images: ["OGBilliard_Before.jpg", "OGBillliard_After.jpg","t1.jpg","t2.jpg","t3.jpg","t4.jpg"]
   },
   project18: {
     title: "Roll Up Doors",
     location: "Pio Cruzcosa, Calumpit, Bulacan",
     description: "Secure and durable roll-up doors with precision installation.",
-    images: ["rollup_before.jpg", "rollup_after.jpg"]
+    images: ["rollup_before.jpg", "rollup_after.jpg","01.jpg","03.jpg","02.jpg"]
   }
 };
+
 
 // ------------------------------------------------------------
 // ✅ Hook up "View Details" buttons
@@ -411,5 +459,42 @@ if (scrollContent) {
     });
   });
 }
+
+// ------------------------------------------------------------
+// ✅ LIGHTBOX binder function (kasama na yung eme1.jpg sa .ongoing-media)
+// ------------------------------------------------------------
+function bindLightbox() {
+  document.querySelectorAll(
+    ".ongoing-gallery img, .project-card img, .ongoing-media img"
+  ).forEach(img => {
+    img.onclick = () => openLightbox(img.src);
+  });
+}
+
+// ✅ Initial bind
+document.addEventListener("DOMContentLoaded", () => {
+  bindLightbox();
+
+  // ------------------------------------------------------------
+  // ✅ MutationObserver para sa mga bagong images
+  // ------------------------------------------------------------
+  const targets = document.querySelectorAll(".ongoing-gallery, .ongoing-media");
+
+  targets.forEach(target => {
+    if (target) {
+      const observer = new MutationObserver(() => {
+        bindLightbox(); // re-bind kapag may bagong <img>
+      });
+
+      observer.observe(target, {
+        childList: true,
+        subtree: true
+      });
+    }
+  });
+});
+
+
+
 
 

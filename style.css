@@ -810,6 +810,7 @@ nav .menu a:hover {
   align-items: flex-start;
   margin-top: 40px;
   position: relative;
+  align-items: stretch; /* ✅ pantay ang taas */
 }
 
 .ongoing-media {
@@ -821,6 +822,12 @@ nav .menu a:hover {
   border-radius: 14px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.6);
   position: relative; /* para magamit yung badge positioning */
+}
+
+.ongoing-media,
+.ongoing-desc {
+  display: flex;
+  flex-direction: column;
 }
 
 .ongoing-media img,
@@ -910,9 +917,44 @@ nav .menu a:hover {
 /* ✅ Ongoing Gallery */
 .ongoing-gallery {
   margin-top: 30px;
-  display: grid;
+  /* display: grid; */
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 24px;
+  /* gap: 24px; */
+  display: flex;
+  gap: 20px;
+  transition: transform 0.6s ease-in-out; /* smooth slide */
+  width: 100%;
+}
+
+.gallery-set {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  flex: 0 0 100%;
+}
+
+.gallery-set img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-set img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(229,174,99,0.5);
+}
+
+/* Responsive tweak */
+@media (max-width: 768px) {
+  .gallery-set {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .gallery-set img {
+    height: 100px;
+  }
 }
 
 .ongoing-gallery img {
@@ -922,11 +964,24 @@ nav .menu a:hover {
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.4);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  flex: 0 0 calc(25% - 20px); /* 4 pics per row */
+  
 }
 
 .ongoing-gallery img:hover {
   transform: scale(1.05);
   box-shadow: 0 6px 16px rgba(229,174,99,0.5);
+}
+
+.hidden {
+  display: none;
+}
+
+.ongoing-gallery-wrapper {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
 }
 
 /* ✅ Responsive tweak */
