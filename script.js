@@ -145,32 +145,34 @@ dots.forEach((dot, i) => {
 
 // ONGOING
 
-const viewBtn = document.getElementById("viewMoreBtn");
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
 const gallery = document.getElementById("ongoingGallery");
 
 // dalawang set ng 8 pictures
-const set1 = [
-  "OG_1.jpg","OG_2.jpg","OG_3.jpg","OG_4.jpg",
-  "OG_5.jpg","OG_6.jpg","OG_7.jpg","OG_8.jpg"
-];
-const set2 = [
-  "OG_9.jpg","OG_10.jpg","OG_11.jpg","OG_12.jpg",
-  "OG_13.jpg","OG_14.jpg","OG_15.jpg","OG_16.jpg"
+const sets = [
+  [
+    "OG_1.jpg","OG_2.jpg","OG_3.jpg","OG_4.jpg",
+    "OG_5.jpg","OG_6.jpg","OG_7.jpg","OG_8.jpg"
+  ],
+  [
+    "OG_9.jpg","OG_10.jpg","OG_11.jpg","OG_12.jpg",
+    "OG_13.jpg","OG_14.jpg","OG_15.jpg","OG_16.jpg"
+  ]
 ];
 
-let showingSet = 1;
+let currentSet = 0;
 
-viewBtn.addEventListener("click", () => {
-  gallery.style.transform = "translateX(-100%)"; // slide out left
+// function para mag-render ng images
+function renderGallery(setIndex, direction = "next") {
+  gallery.style.transform = direction === "next" ? "translateX(-100%)" : "translateX(100%)";
 
   setTimeout(() => {
-    // palitan ng bagong set
     gallery.innerHTML = "";
     const newSet = document.createElement("div");
     newSet.classList.add("gallery-set");
 
-    const pics = showingSet === 1 ? set2 : set1;
-    pics.forEach(src => {
+    sets[setIndex].forEach(src => {
       const img = document.createElement("img");
       img.src = src;
       img.alt = "Gallery";
@@ -179,17 +181,29 @@ viewBtn.addEventListener("click", () => {
 
     gallery.appendChild(newSet);
 
-    // balik sa kanan then slide in
-    gallery.style.transform = "translateX(100%)";
+    // balik sa kabilang side para smooth transition
+    gallery.style.transform = direction === "next" ? "translateX(100%)" : "translateX(-100%)";
+
     setTimeout(() => {
       gallery.style.transform = "translateX(0)";
     }, 50);
-
-    // toggle state
-    showingSet = showingSet === 1 ? 2 : 1;
-    viewBtn.textContent = showingSet === 1 ? "View More" : "View Less";
   }, 600);
+}
+
+// NEXT button
+nextBtn.addEventListener("click", () => {
+  const newSet = (currentSet + 1) % sets.length;
+  renderGallery(newSet, "next");
+  currentSet = newSet;
 });
+
+// PREV button
+prevBtn.addEventListener("click", () => {
+  const newSet = (currentSet - 1 + sets.length) % sets.length;
+  renderGallery(newSet, "prev");
+  currentSet = newSet;
+});
+
 
 
 // PROJECT

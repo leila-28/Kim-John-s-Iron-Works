@@ -1571,3 +1571,66 @@ nav .menu a:hover {
     }
 }
 
+
+/* CONTACT */
+
+/* Contact Section */
+.contact-section {
+  background: linear-gradient(135deg, #1a1a1a, #242424);
+  padding: 60px 30px;
+  text-align: center;
+}
+
+.contact-section h2 {
+  color: #e5ae63;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-form .form-group {
+  margin-bottom: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  background: #2a2a2a;
+  color: #fff;
+  font-size: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  transition: all 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  box-shadow: 0 0 8px rgba(229,174,99,0.8);
+}
+
+.btn-send {
+  background: #e5ae63;
+  color: #1a1a1a;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn-send:hover {
+  background: #f0c278;
+  transform: scale(1.05);
+}

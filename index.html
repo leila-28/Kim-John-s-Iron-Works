@@ -93,7 +93,8 @@
                 <p>We are currently working on a modern roofing project focuses on a complete roof renovation designed for durability and aesthetics. The structure integrates modern materials with weatherproof solutions to ensure long-term performance.</p>
                 <p>Morong, Bataan, Philippines</p>
                 <div class="ongoing-actions">
-                    <a href="javascript:void(0)" id="viewMoreBtn" class="btn btn-warning">View More</a>
+                    <button id="prevBtn" class="btn btn-dark">&#10094;</button>
+                    <button id="nextBtn" class="btn btn-warning">&#10095;</button>
                     <a href="#footerTB" class="btn btn-dark">Contact Us</a>
                 </div>
                 <div class="ongoing-gallery-wrapper">
@@ -355,6 +356,14 @@
             <div class="card">
                 <div class="video-wrapper">
                     <video controls>
+                        <source src="billiardVideo.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="card-text">OG Billiard</div>
+            </div>
+            <div class="card">
+                <div class="video-wrapper">
+                    <video controls>
                         <source src="ongoing_vid.mp4" type="video/mp4">
                     </video>
                 </div>
@@ -480,6 +489,33 @@
             </h6>
         </div>
     </section>
+
+    <!-- CONTACT SECTION -->
+<section id="contact" class="contact-section">
+  <h2>Contact Us</h2>
+  <form action="https://formsubmit.co/leilaannebalatayo80@gmail.com" method="POST" class="contact-form">
+    
+    <!-- Hidden fields -->
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="https://yourdomain.netlify.app/#contact">
+    
+    <div class="form-group">
+      <input type="text" name="name" placeholder="Your Name" required>
+    </div>
+
+    <div class="form-group">
+      <input type="email" name="email" placeholder="Your Email" required>
+    </div>
+
+    <div class="form-group">
+      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+    </div>
+
+    <button type="submit" class="btn-send">Send Message</button>
+  </form>
+</section>
+
+
 
     <section class="cover8" id="footerTB">
         <div class="logo_footer">
