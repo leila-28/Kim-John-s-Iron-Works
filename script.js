@@ -1,20 +1,16 @@
-// ================================
 // NAVBAR SCROLL LOGIC
-// ================================
 const navbar = document.querySelector("nav");
 let lastScroll = window.scrollY;
 
 window.addEventListener("scroll", () => {
     const currentScroll = window.scrollY;
 
-    // Scroll down → hide navbar, Scroll up → show navbar
     if (currentScroll > lastScroll) {
         navbar.classList.add("hidden");
     } else {
         navbar.classList.remove("hidden");
     }
 
-    // Top of page → transparent, else → scrolled style
     if (currentScroll < 50) {
         navbar.classList.remove("scrolled");
     } else {
@@ -24,39 +20,30 @@ window.addEventListener("scroll", () => {
     lastScroll = currentScroll;
 });
 
-// ================================
 // HAMBURGER MENU & ACTIVE LINKS
-// ================================
 document.addEventListener("DOMContentLoaded", () => {
     const hamburger = document.querySelector(".hamburger");
     const menu = document.querySelector(".menu");
     const links = document.querySelectorAll(".menu a");
 
-    // Toggle menu
     hamburger.addEventListener("click", () => {
         menu.classList.toggle("active");
         hamburger.classList.toggle("open");
     });
 
-    // Close menu and set active link when clicked
     links.forEach(link => {
         link.addEventListener("click", () => {
-            // Remove active from all links
             links.forEach(l => l.classList.remove("active"));
 
-            // Add active to clicked link
             link.classList.add("active");
 
-            // Close menu
             menu.classList.remove("active");
             hamburger.classList.remove("open");
         });
     });
 });
 
-// ================================
 // HOME SLIDER
-// ================================
 const slider = document.querySelector(".slider");
 const slides = document.querySelectorAll(".slide");
 const dots = document.querySelectorAll(".dot");
@@ -64,13 +51,11 @@ const dots = document.querySelectorAll(".dot");
 let index = 0;
 let totalSlides = slides.length;
 
-// Clone first & last slides
 const firstClone = slides[0].cloneNode(true);
 const lastClone = slides[totalSlides - 1].cloneNode(true);
 slider.appendChild(firstClone);
 slider.insertBefore(lastClone, slides[0]);
 
-// Initial position
 slider.style.transform = `translateX(-100%)`;
 index = 1;
 
@@ -80,7 +65,6 @@ function moveToSlide(n, instant = false) {
     slider.style.transform = `translateX(-${n * 100}%)`;
 }
 
-// Update dots
 function updateDots() {
     dots.forEach(dot => dot.classList.remove("active"));
     let dotIndex = index - 1;
@@ -89,7 +73,6 @@ function updateDots() {
     dots[dotIndex].classList.add("active");
 }
 
-// Next / Prev slides
 function nextSlide() {
     index++;
     moveToSlide(index);
@@ -114,14 +97,12 @@ function prevSlide() {
     updateDots();
 }
 
-// Autoplay
-let slideInterval = setInterval(nextSlide, 3000);
+let slideInterval = setInterval(nextSlide, 5000);
 function resetTimer() {
     clearInterval(slideInterval);
-    slideInterval = setInterval(nextSlide, 3000);
+    slideInterval = setInterval(nextSlide, 5000);
 }
 
-// Controls
 document.querySelector(".next").addEventListener("click", () => {
     nextSlide();
     resetTimer();
@@ -132,7 +113,6 @@ document.querySelector(".prev").addEventListener("click", () => {
     resetTimer();
 });
 
-// Dot navigation
 dots.forEach((dot, i) => {
     dot.addEventListener("click", () => {
         index = i + 1;
@@ -142,14 +122,11 @@ dots.forEach((dot, i) => {
     });
 });
 
-
 // ONGOING
-
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
 const gallery = document.getElementById("ongoingGallery");
 
-// dalawang set ng 8 pictures
 const sets = [
   [
     "OG_1.jpg","OG_2.jpg","OG_3.jpg","OG_4.jpg",
@@ -163,12 +140,19 @@ const sets = [
 
 let currentSet = 0;
 
-// function para mag-render ng images
 function renderGallery(setIndex, direction = "next") {
+  // apply slide out transition
+  gallery.style.transition = "transform 0.6s ease";
   gallery.style.transform = direction === "next" ? "translateX(-100%)" : "translateX(100%)";
 
-  setTimeout(() => {
+  // wait until slide out is done
+  gallery.addEventListener("transitionend", function handler() {
+    gallery.removeEventListener("transitionend", handler);
+
+    // remove transition for instant reset
+    gallery.style.transition = "none";
     gallery.innerHTML = "";
+
     const newSet = document.createElement("div");
     newSet.classList.add("gallery-set");
 
@@ -181,29 +165,28 @@ function renderGallery(setIndex, direction = "next") {
 
     gallery.appendChild(newSet);
 
-    // balik sa kabilang side para smooth transition
+    // move to opposite side instantly
     gallery.style.transform = direction === "next" ? "translateX(100%)" : "translateX(-100%)";
 
-    setTimeout(() => {
+    // reapply transition then slide in
+    requestAnimationFrame(() => {
+      gallery.style.transition = "transform 0.6s ease";
       gallery.style.transform = "translateX(0)";
-    }, 50);
-  }, 600);
+    });
+  });
 }
 
-// NEXT button
 nextBtn.addEventListener("click", () => {
   const newSet = (currentSet + 1) % sets.length;
   renderGallery(newSet, "next");
   currentSet = newSet;
 });
 
-// PREV button
 prevBtn.addEventListener("click", () => {
   const newSet = (currentSet - 1 + sets.length) % sets.length;
   renderGallery(newSet, "prev");
   currentSet = newSet;
 });
-
 
 
 // PROJECT
@@ -212,7 +195,7 @@ const allCards = document.querySelectorAll(".project-card");
 const filterLinks = document.querySelectorAll(".filter-buttons a");
 
 let expanded = false;
-let currentFilter = "all"; // default filter
+let currentFilter = "all";
 
 function updateProjects() {
   let visibleCount = 0;
@@ -230,47 +213,41 @@ function updateProjects() {
     }
   });
 
-  // toggle button text depende sa state
   if (visibleCount > 5) {
     seeMoreBtn.style.display = "inline-block";
     seeMoreBtn.textContent = expanded ? "See Less" : "See More";
   } else {
-    seeMoreBtn.style.display = "none"; // hide button if <=5
+    seeMoreBtn.style.display = "none";
   }
 
-  // update active class for filter buttons
   filterLinks.forEach(link => link.classList.remove("active"));
   filterLinks.forEach(link => {
     if (link.dataset.filter === currentFilter) link.classList.add("active");
   });
 }
 
-// --- SEE MORE / SEE LESS ---
 seeMoreBtn.addEventListener("click", () => {
   expanded = !expanded;
   updateProjects();
 });
 
-// --- FILTERING ---
 filterLinks.forEach(link => {
   link.addEventListener("click", (e) => {
     e.preventDefault();
     currentFilter = link.dataset.filter;
-    expanded = false; // reset see more
+    expanded = false;
     updateProjects();
   });
 });
 
-// --- Initial load ---
 updateProjects();
 
-// --- MOBILE BEFORE/AFTER TOGGLE ---
 allCards.forEach(card => {
   const beforeImg = card.querySelector("img.before");
   let mobileToggle = false;
 
   card.addEventListener("click", () => {
-    if (window.innerWidth <= 768) { // mobile only
+    if (window.innerWidth <= 768) {
       mobileToggle = !mobileToggle;
       if (beforeImg) {
         beforeImg.style.opacity = mobileToggle ? "1" : "0";
@@ -279,10 +256,7 @@ allCards.forEach(card => {
   });
 });
 
-
-// ------------------------------------------------------------
 // ✅ PROJECT DETAILS MODAL + LIGHTBOX
-// ------------------------------------------------------------
 const modal = document.getElementById("projectModal");
 const closeBtn = document.querySelector(".close");
 const modalTitle = document.getElementById("modalTitle");
@@ -290,7 +264,6 @@ const modalLocation = document.getElementById("modalLocation");
 const modalDescription = document.getElementById("modalDescription");
 const modalGallery = document.getElementById("modalGallery");
 
-// 🔹 Lightbox
 const lightbox = document.createElement("div");
 lightbox.classList.add("lightbox");
 document.body.appendChild(lightbox);
@@ -415,10 +388,7 @@ const projectData = {
   }
 };
 
-
-// ------------------------------------------------------------
 // ✅ Hook up "View Details" buttons
-// ------------------------------------------------------------
 document.querySelectorAll(".view-details button").forEach(btn => {
   btn.addEventListener("click", () => {
     const projectId = btn.dataset.project;
@@ -444,7 +414,6 @@ document.querySelectorAll(".view-details button").forEach(btn => {
   });
 });
 
-// Close modal
 closeBtn.onclick = () => modal.style.display = "none";
 window.onclick = (e) => { if (e.target == modal) modal.style.display = "none"; };
 
@@ -457,26 +426,23 @@ if (scrollContent) {
 
   imgs.forEach(img => {
     img.addEventListener("click", () => {
-      if (window.innerWidth <= 768) { // mobile only
+      if (window.innerWidth <= 768) {
         const isPaused = img.classList.contains("zoomed");
 
-        // clear all zoomed para isang image lang
         imgs.forEach(i => i.classList.remove("zoomed"));
 
         if (!isPaused) {
           img.classList.add("zoomed");
-          scrollContent.style.animationPlayState = "paused"; // stop scroll
+          scrollContent.style.animationPlayState = "paused";
         } else {
-          scrollContent.style.animationPlayState = "running"; // resume scroll
+          scrollContent.style.animationPlayState = "running";
         }
       }
     });
   });
 }
 
-// ------------------------------------------------------------
 // ✅ LIGHTBOX binder function (kasama na yung eme1.jpg sa .ongoing-media)
-// ------------------------------------------------------------
 function bindLightbox() {
   document.querySelectorAll(
     ".ongoing-gallery img, .project-card img, .ongoing-media img"
@@ -485,19 +451,16 @@ function bindLightbox() {
   });
 }
 
-// ✅ Initial bind
 document.addEventListener("DOMContentLoaded", () => {
   bindLightbox();
 
-  // ------------------------------------------------------------
   // ✅ MutationObserver para sa mga bagong images
-  // ------------------------------------------------------------
   const targets = document.querySelectorAll(".ongoing-gallery, .ongoing-media");
 
   targets.forEach(target => {
     if (target) {
       const observer = new MutationObserver(() => {
-        bindLightbox(); // re-bind kapag may bagong <img>
+        bindLightbox();
       });
 
       observer.observe(target, {
@@ -512,3 +475,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.querySelector(".contact-form");
+  const popup = document.getElementById("successPopup");
+  const closeBtn = document.getElementById("closePopup");
+
+  form.addEventListener("submit", async function(e) {
+    e.preventDefault();
+    const formData = new FormData(this);
+
+    try {
+      await fetch(this.action, {
+        method: this.method,
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      // show popup
+      popup.classList.remove("hidden");
+
+      // reset form
+      form.reset();
+    } catch (err) {
+      alert("❌ Something went wrong, please try again.");
+    }
+  });
+
+  if (closeBtn) {
+    closeBtn.addEventListener("click", () => {
+      popup.classList.add("hidden");
+    });
+  }
+});

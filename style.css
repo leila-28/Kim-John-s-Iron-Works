@@ -289,16 +289,16 @@ nav .menu a:hover {
 .prev, .next {
     cursor: pointer;
     position: absolute;
-    top: 50%;
+    top: 93%;
     transform: translateY(-50%);
     width: 50px; 
     height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(229, 174, 99, 0.9); /* gold-ish */
+    background: #e5ae63;
     border: 2px solid #fff;
-    border-radius: 50%;
+    border-radius: 6px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     transition: all 0.3s ease;
     user-select: none;
@@ -315,16 +315,8 @@ nav .menu a:hover {
 }
 
 /* Positioning */
-.prev { left: 20px; }
-.next { right: 20px; }
-
-/* SVG icons */
-.prev svg, .next svg {
-    width: 24px;
-    height: 24px;
-    fill: #fff;
-    pointer-events: none;
-}
+.prev { left: 90%; }
+.next { right: 3%; }
 
 /* 📱 Responsive adjustments */
 @media (max-width: 768px) {
@@ -333,6 +325,8 @@ nav .menu a:hover {
         height: 40px;
         font-size: 18px;
     }
+    .prev { left: 80%; }
+    .next { right: 3%; }
 
     .banner-buttons .dot {
         height: 8px;
@@ -840,14 +834,6 @@ nav .menu a:hover {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* .ongoing-media img:hover,
-.ongoing-media video:hover {
-  transform: scale(1.03);
-  box-shadow: 0 8px 20px rgba(229,174,99,0.6);
-} */
-
-/* ✅ Badge nasa upper-left ng left container */
-/* ✅ Badge nasa upper-left ng left container */
 .ongoing-media .badge {
   position: absolute;
   top: 25px;
@@ -884,9 +870,14 @@ nav .menu a:hover {
   color: #ddd;
 }
 
+.ongoing-desc p i{
+  color: #e5ae63;
+}
+
 .ongoing-actions {
   display: flex;
   gap: 15px;
+  justify-content: right;
 }
 
 .ongoing-actions .btn {
@@ -897,8 +888,8 @@ nav .menu a:hover {
 }
 
 .ongoing-actions .btn-warning {
-  background: #e5ae63;
-  color: #1e1e1e;
+  background: #333;
+  color: #fff;
   border: none;
 }
 .ongoing-actions .btn-warning:hover {
@@ -911,7 +902,7 @@ nav .menu a:hover {
   border: none;
 }
 .ongoing-actions .btn-dark:hover {
-  background: #444;
+  background: #e5ae63;
 }
 
 /* ✅ Ongoing Gallery */
@@ -982,6 +973,7 @@ nav .menu a:hover {
   overflow: hidden;
   width: 100%;
   position: relative;
+  top: -5%;
 }
 
 /* ✅ Responsive tweak */
@@ -1633,4 +1625,61 @@ nav .menu a:hover {
 .btn-send:hover {
   background: #f0c278;
   transform: scale(1.05);
+}
+
+
+
+
+
+
+
+
+/* Success Popup */
+.success-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.success-popup.hidden {
+  display: none;
+}
+
+.popup-content {
+  background: #2a2a2a;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+  max-width: 400px;
+  width: 90%;
+}
+
+.popup-content h3 {
+  color: #e5ae63;
+  margin-bottom: 10px;
+}
+
+.popup-content button {
+  margin-top: 20px;
+  padding: 10px 22px;
+  border: none;
+  border-radius: 6px;
+  background: #e5ae63;
+  color: #1a1a1a;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.popup-content button:hover {
+  background: #f0c278;
 }
