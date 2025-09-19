@@ -548,12 +548,14 @@ nav .menu a:hover {
   .cover-text2 p {
     position: absolute;
     font-size: 2.5vw;
+    top: 50%;
     left: .5%;
   }
 
   .cover-text3 p {
     position: absolute;
     font-size: 2.5vw;
+    top: 50%;
     left: 11%;
   }
 
@@ -595,9 +597,8 @@ nav .menu a:hover {
 @media (max-width: 480px) {
 
   /* Center all texts on all slides */
-  .cover-text,
-  .cover-text2,
-  .cover-text3 {
+  .cover-text
+   {
     position: absolute;
     top: 30%;
     left: 50%;
@@ -608,8 +609,10 @@ nav .menu a:hover {
   .cover-text2 h1,
   .cover-text3 h1 {
     font-size: 6vw;
-    transform: translateX(-50%);
+    /* transform: translateX(-50%); */
     text-align: center;
+    top: 45%;
+    left: 5%;
     min-width: 100vw;
   }
 
@@ -620,9 +623,9 @@ nav .menu a:hover {
   .cover-text2 p,
   .cover-text3 p {
     font-size: 3.5vw;
-    transform: translateX(-50%) !important;
+    /* transform: translateX(-50%) !important; */
     text-align: center;
-    margin-top: 50% !important;
+    margin-top: 15% !important;
     min-width: 50vw;
   }
 
