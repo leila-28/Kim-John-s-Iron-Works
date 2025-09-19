@@ -913,8 +913,8 @@ nav .menu a:hover {
 }
 
 .modal-gallery img {
-  width: 200px;
-  height: 150px;
+  max-width: 20%;
+  max-height: 20%;
   border-radius: 6px;
   cursor: pointer;
   transition: transform 0.3s;
