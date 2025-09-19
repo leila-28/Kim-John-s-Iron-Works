@@ -955,7 +955,7 @@ nav .menu a:hover {
   }
 
   .modal-gallery img {
-    width: 120px; /* mas maliit para hindi lumagpas sa lapad ng phone */
+    width: 80px; /* mas maliit para hindi lumagpas sa lapad ng phone */
     height: 120px;
   }
 }
