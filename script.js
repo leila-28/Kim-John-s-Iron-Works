@@ -61,7 +61,7 @@ index = 1;
 
 function moveToSlide(n, instant = false) {
     if (instant) slider.style.transition = "none";
-    else slider.style.transition = "transform 0.5s ease";
+    else slider.style.transition = "transform 1s ease";
     slider.style.transform = `translateX(-${n * 100}%)`;
 }
 
@@ -80,7 +80,7 @@ function nextSlide() {
         setTimeout(() => {
             index = 1;
             moveToSlide(index, true);
-        }, 500);
+        }, 1000);
     }
     updateDots();
 }
@@ -92,15 +92,15 @@ function prevSlide() {
         setTimeout(() => {
             index = totalSlides;
             moveToSlide(index, true);
-        }, 500);
+        }, 1000);
     }
     updateDots();
 }
 
-let slideInterval = setInterval(nextSlide, 5000);
+let slideInterval = setInterval(nextSlide, 9000);
 function resetTimer() {
     clearInterval(slideInterval);
-    slideInterval = setInterval(nextSlide, 5000);
+    slideInterval = setInterval(nextSlide, 9000);
 }
 
 document.querySelector(".next").addEventListener("click", () => {
