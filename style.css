@@ -957,7 +957,7 @@ nav .menu a:hover {
 
   .modal-gallery img {
     max-width: 20%; /* mas maliit para hindi lumagpas sa lapad ng phone */
-    max-height: 40%;
+    max-height: 20%;
   }
 }
 
@@ -970,7 +970,7 @@ nav .menu a:hover {
 
 .modal-gallery img {
     max-width: 20%; /* mas maliit para hindi lumagpas sa lapad ng phone */
-    max-height: 40%;
+    max-height: 20%;
   }
 }
 
