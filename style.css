@@ -930,8 +930,9 @@ nav .menu a:hover {
     padding: 15px;
   }
 
-  .modal-gallery img {
-    width: 150px; /* lumiit para magkasya */
+ .modal-gallery img {
+    max-width: 20%; /* mas maliit para hindi lumagpas sa lapad ng phone */
+    max-height: 40%;
   }
 }
 
