@@ -600,19 +600,27 @@ nav .menu a:hover {
   .cover-text
    {
     position: absolute;
-    top: 30%;
+    top: 40%;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
   }
 
-  .cover-text2 h1,
-  .cover-text3 h1 {
+  .cover-text2 h1{
     font-size: 6vw;
     /* transform: translateX(-50%); */
     text-align: center;
     top: 45%;
-    left: 5%;
+    left: 2%;
+    min-width: 100vw;
+  }
+
+  .cover-text3 h1 {
+    font-size: 6vw;
+    /* transform: translateX(-50%); */
+    text-align: center;
+    top: 46%;
+    left: 1%;
     min-width: 100vw;
   }
 
@@ -620,12 +628,20 @@ nav .menu a:hover {
     font-size: 6vw;
   }
 
-  .cover-text2 p,
+  .cover-text2 p{
+    font-size: 3.5vw;
+    /* transform: translateX(-50%) !important; */
+    text-align: center;
+    margin-top: 10% !important;
+    min-width: 50vw;
+  }
+
   .cover-text3 p {
     font-size: 3.5vw;
     /* transform: translateX(-50%) !important; */
     text-align: center;
-    margin-top: 15% !important;
+    margin-top: 5% !important;
+    left: 1%;
     min-width: 50vw;
   }
 
