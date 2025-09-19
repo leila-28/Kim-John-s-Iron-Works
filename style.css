@@ -967,8 +967,9 @@ nav .menu a:hover {
     padding: 10px;
   }
 
-  .modal-gallery img {
-    width: 100%; /* full width per row sa sobrang liit na screen */
+.modal-gallery img {
+    max-width: 80px; /* mas maliit para hindi lumagpas sa lapad ng phone */
+    max-height: 120px;
   }
 }
 
